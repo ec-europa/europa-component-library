@@ -11,19 +11,20 @@ import dataDescriptionListHorizontal from './demo/data--horizontal';
 expect.extend(toHaveNoViolations);
 
 const normalizeGeneratedIds = (element) => {
-  const generated = element.querySelector('[id^="ecl-popover"]');
+  const generated = element.querySelectorAll('[id^="ecl-popover"]');
 
-  if (generated) {
-    const stableId = 'generated-id';
+  generated.forEach((item, index) => {
+    const stableId = `generated-id-${index}`;
 
-    generated.setAttribute('id', stableId);
+    const oldId = item.id;
+    item.id = stableId;
 
-    const controller = element.querySelector('[aria-controls^="ecl-popover"]');
-
-    if (controller) {
-      controller.setAttribute('aria-controls', stableId);
-    }
-  }
+    element
+      .querySelectorAll(`[aria-controls="${oldId}"]`)
+      .forEach((controller) => {
+        controller.setAttribute('aria-controls', stableId);
+      });
+  });
 
   return element;
 };

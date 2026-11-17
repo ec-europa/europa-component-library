@@ -73,7 +73,8 @@ export class DescriptionList {
     // Add see more button in each list and bind click event on it
     if (this.lists[0] && this.visibleItems > 0 && this.moreItemLabel) {
       this.lists.forEach((list) => {
-        if (list.children && list.children.length > this.visibleItems) {
+        const items = queryAll('.ecl-description-list__definition-item', list);
+        if (items && items.length > this.visibleItems) {
           let button = '';
           if (!list.hasAttribute('data-ecl-description-list-has-popover')) {
             const listItem = document.createElement('li');
@@ -165,15 +166,22 @@ export class DescriptionList {
     if (this.element.contains(list)) {
       // Popover use case
       if (list.hasAttribute('data-ecl-description-list-has-popover')) {
-        const contentEl = queryOne('.ecl-popover__scrollable', list);
+        const contentEl = queryOne('.ecl-popover__content', list);
         if (!list.dataset.popoverPopulated) {
-          const dd = list.closest('.ecl-description-list__definition');
-          const dt = dd.previousSibling;
-          const category = dt && dt.tagName === 'DT' ? dt.textContent : null;
-          if (category) {
+          const terms = [];
+          let sibling = list.closest(
+            '.ecl-description-list__definition',
+          )?.previousElementSibling;
+
+          while (sibling?.tagName === 'DT') {
+            terms.unshift(sibling.textContent);
+            sibling = sibling.previousElementSibling;
+          }
+
+          if (terms.length) {
             const span = document.createElement('span');
             span.classList.add('ecl-description-list__term');
-            span.innerHTML = category;
+            span.textContent = terms.join(', ');
             contentEl.prepend(span);
           }
 
@@ -192,7 +200,11 @@ export class DescriptionList {
               return clone;
             });
 
-          contentEl.append(...items);
+          const popoverList = document.createElement('ul');
+          popoverList.classList.add('ecl-description-list__definition-list');
+          popoverList.append(...items);
+
+          contentEl.append(popoverList);
 
           list.dataset.popoverPopulated = 'true';
         }

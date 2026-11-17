@@ -50,6 +50,7 @@ export default {
     {
       term: 'Label 06',
       type: 'link-inline',
+      more_popover: true,
       definition: [
         {
           link: {

@@ -5,6 +5,7 @@ export default {
   variant: 'horizontal',
   more_label: 'Show more items',
   visible_items: 2,
+  popover_close_label: 'Close',
   items: [
     {
       term: 'Label 01',

@@ -24,6 +24,8 @@ $card: null !default;
 
 .ecl-card__image {
   aspect-ratio: 3/2;
+  border-start-start-radius: map.get($card, 'border-radius');
+  border-start-end-radius: map.get($card, 'border-radius');
   display: block;
   height: auto;
   object-fit: cover;

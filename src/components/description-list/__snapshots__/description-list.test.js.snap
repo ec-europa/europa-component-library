@@ -117,6 +117,7 @@ exports[`Description list > Default > renders correctly 1`] = `
         <ul
           class="ecl-description-list__definition-list"
           data-ecl-description-list-collapsible=""
+          data-ecl-description-list-has-popover=""
         >
           <li
             class="ecl-description-list__definition-item"
@@ -157,6 +158,59 @@ exports[`Description list > Default > renders correctly 1`] = `
             >
               Standalone link 4
             </a>
+          </li>
+          <li
+            class="ecl-description-list__see_more"
+          >
+            <div
+              class="ecl-popover ecl-description-list__popover"
+              data-ecl-auto-init="Popover"
+              data-ecl-description-list-popover=""
+            >
+              <button
+                aria-controls="generated-id-0"
+                aria-expanded="false"
+                class="ecl-button ecl-button--tertiary ecl-popover__toggle ecl-link ecl-link--standalone"
+                data-ecl-popover-toggle=""
+                type="button"
+              >
+                Show more items
+              </button>
+              <div
+                class="ecl-popover__container"
+                hidden=""
+                id="generated-id-0"
+              >
+                <div
+                  class="ecl-popover__scrollable"
+                >
+                  <button
+                    class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-popover__close ecl-button--icon-only"
+                    data-ecl-popover-close=""
+                    type="button"
+                  >
+                    <span
+                      class="ecl-button__container"
+                    >
+                      <span
+                        class="ecl-button__label"
+                        data-ecl-label="true"
+                      >
+                        Close
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-phosphor--x ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--x"
+                        data-ecl-icon=""
+                      />
+                    </span>
+                  </button>
+                  <div
+                    class="ecl-popover__content"
+                  />
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
       </dd>
@@ -372,7 +426,7 @@ exports[`Description list > Default > renders correctly 1`] = `
               data-ecl-description-list-popover=""
             >
               <button
-                aria-controls="generated-id"
+                aria-controls="generated-id-1"
                 aria-expanded="false"
                 class="ecl-button ecl-button--tertiary ecl-popover__toggle ecl-link ecl-link--standalone"
                 data-ecl-popover-toggle=""
@@ -383,7 +437,7 @@ exports[`Description list > Default > renders correctly 1`] = `
               <div
                 class="ecl-popover__container"
                 hidden=""
-                id="generated-id"
+                id="generated-id-1"
               >
                 <div
                   class="ecl-popover__scrollable"
@@ -396,6 +450,12 @@ exports[`Description list > Default > renders correctly 1`] = `
                     <span
                       class="ecl-button__container"
                     >
+                      <span
+                        class="ecl-button__label"
+                        data-ecl-label="true"
+                      >
+                        Close
+                      </span>
                       <span
                         aria-hidden="true"
                         class="wt-icon-phosphor--x ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--x"
@@ -848,7 +908,7 @@ exports[`Description list > Default > renders correctly in the horizontal varian
               data-ecl-description-list-popover=""
             >
               <button
-                aria-controls="generated-id"
+                aria-controls="generated-id-0"
                 aria-expanded="false"
                 class="ecl-button ecl-button--tertiary ecl-popover__toggle ecl-link ecl-link--standalone"
                 data-ecl-popover-toggle=""
@@ -859,7 +919,7 @@ exports[`Description list > Default > renders correctly in the horizontal varian
               <div
                 class="ecl-popover__container"
                 hidden=""
-                id="generated-id"
+                id="generated-id-0"
               >
                 <div
                   class="ecl-popover__scrollable"
@@ -872,6 +932,12 @@ exports[`Description list > Default > renders correctly in the horizontal varian
                     <span
                       class="ecl-button__container"
                     >
+                      <span
+                        class="ecl-button__label"
+                        data-ecl-label="true"
+                      >
+                        Close
+                      </span>
                       <span
                         aria-hidden="true"
                         class="wt-icon-phosphor--x ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--x"
@@ -1069,6 +1135,7 @@ exports[`Description list > Default > renders correctly with extra attributes 1`
         <ul
           class="ecl-description-list__definition-list"
           data-ecl-description-list-collapsible=""
+          data-ecl-description-list-has-popover=""
         >
           <li
             class="ecl-description-list__definition-item"
@@ -1109,6 +1176,59 @@ exports[`Description list > Default > renders correctly with extra attributes 1`
             >
               Standalone link 4
             </a>
+          </li>
+          <li
+            class="ecl-description-list__see_more"
+          >
+            <div
+              class="ecl-popover ecl-description-list__popover"
+              data-ecl-auto-init="Popover"
+              data-ecl-description-list-popover=""
+            >
+              <button
+                aria-controls="generated-id-0"
+                aria-expanded="false"
+                class="ecl-button ecl-button--tertiary ecl-popover__toggle ecl-link ecl-link--standalone"
+                data-ecl-popover-toggle=""
+                type="button"
+              >
+                Show more items
+              </button>
+              <div
+                class="ecl-popover__container"
+                hidden=""
+                id="generated-id-0"
+              >
+                <div
+                  class="ecl-popover__scrollable"
+                >
+                  <button
+                    class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-popover__close ecl-button--icon-only"
+                    data-ecl-popover-close=""
+                    type="button"
+                  >
+                    <span
+                      class="ecl-button__container"
+                    >
+                      <span
+                        class="ecl-button__label"
+                        data-ecl-label="true"
+                      >
+                        Close
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-phosphor--x ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--x"
+                        data-ecl-icon=""
+                      />
+                    </span>
+                  </button>
+                  <div
+                    class="ecl-popover__content"
+                  />
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
       </dd>
@@ -1324,7 +1444,7 @@ exports[`Description list > Default > renders correctly with extra attributes 1`
               data-ecl-description-list-popover=""
             >
               <button
-                aria-controls="generated-id"
+                aria-controls="generated-id-1"
                 aria-expanded="false"
                 class="ecl-button ecl-button--tertiary ecl-popover__toggle ecl-link ecl-link--standalone"
                 data-ecl-popover-toggle=""
@@ -1335,7 +1455,7 @@ exports[`Description list > Default > renders correctly with extra attributes 1`
               <div
                 class="ecl-popover__container"
                 hidden=""
-                id="generated-id"
+                id="generated-id-1"
               >
                 <div
                   class="ecl-popover__scrollable"
@@ -1348,6 +1468,12 @@ exports[`Description list > Default > renders correctly with extra attributes 1`
                     <span
                       class="ecl-button__container"
                     >
+                      <span
+                        class="ecl-button__label"
+                        data-ecl-label="true"
+                      >
+                        Close
+                      </span>
                       <span
                         aria-hidden="true"
                         class="wt-icon-phosphor--x ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--x"
@@ -1545,6 +1671,7 @@ exports[`Description list > Default > renders correctly with extra class names 1
         <ul
           class="ecl-description-list__definition-list"
           data-ecl-description-list-collapsible=""
+          data-ecl-description-list-has-popover=""
         >
           <li
             class="ecl-description-list__definition-item"
@@ -1585,6 +1712,59 @@ exports[`Description list > Default > renders correctly with extra class names 1
             >
               Standalone link 4
             </a>
+          </li>
+          <li
+            class="ecl-description-list__see_more"
+          >
+            <div
+              class="ecl-popover ecl-description-list__popover"
+              data-ecl-auto-init="Popover"
+              data-ecl-description-list-popover=""
+            >
+              <button
+                aria-controls="generated-id-0"
+                aria-expanded="false"
+                class="ecl-button ecl-button--tertiary ecl-popover__toggle ecl-link ecl-link--standalone"
+                data-ecl-popover-toggle=""
+                type="button"
+              >
+                Show more items
+              </button>
+              <div
+                class="ecl-popover__container"
+                hidden=""
+                id="generated-id-0"
+              >
+                <div
+                  class="ecl-popover__scrollable"
+                >
+                  <button
+                    class="ecl-button ecl-button--tertiary ecl-button--neutral ecl-popover__close ecl-button--icon-only"
+                    data-ecl-popover-close=""
+                    type="button"
+                  >
+                    <span
+                      class="ecl-button__container"
+                    >
+                      <span
+                        class="ecl-button__label"
+                        data-ecl-label="true"
+                      >
+                        Close
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        class="wt-icon-phosphor--x ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--x"
+                        data-ecl-icon=""
+                      />
+                    </span>
+                  </button>
+                  <div
+                    class="ecl-popover__content"
+                  />
+                </div>
+              </div>
+            </div>
           </li>
         </ul>
       </dd>
@@ -1800,7 +1980,7 @@ exports[`Description list > Default > renders correctly with extra class names 1
               data-ecl-description-list-popover=""
             >
               <button
-                aria-controls="generated-id"
+                aria-controls="generated-id-1"
                 aria-expanded="false"
                 class="ecl-button ecl-button--tertiary ecl-popover__toggle ecl-link ecl-link--standalone"
                 data-ecl-popover-toggle=""
@@ -1811,7 +1991,7 @@ exports[`Description list > Default > renders correctly with extra class names 1
               <div
                 class="ecl-popover__container"
                 hidden=""
-                id="generated-id"
+                id="generated-id-1"
               >
                 <div
                   class="ecl-popover__scrollable"
@@ -1824,6 +2004,12 @@ exports[`Description list > Default > renders correctly with extra class names 1
                     <span
                       class="ecl-button__container"
                     >
+                      <span
+                        class="ecl-button__label"
+                        data-ecl-label="true"
+                      >
+                        Close
+                      </span>
                       <span
                         aria-hidden="true"
                         class="wt-icon-phosphor--x ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--x"

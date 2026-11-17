@@ -1,3 +1,4 @@
+{% import _self as macros %}
 {% apply spaceless %}
 
 {#
@@ -33,6 +34,7 @@
 {% set _more_label = more_label|default('') %}
 {% set _extra_attributes = '' %}
 {% set _popover_markup = '' %}
+{% set _popover_close_label = popover_close_label|default('') %}
 
 {# Internal logic - Process properties #}
 
@@ -43,26 +45,35 @@
     { name: 'data-ecl-description-list-visible-items', value: _visible_items },
     { name: 'data-ecl-auto-init', value: 'DescriptionList' }
   ] %}
-
-  {% set _popover_markup %}
-    <li class="ecl-description-list__see_more">
-      {% include '@ecl/popover/popover.html.twig' with {
-        toggle: {
-          label: _more_label,
-          extra_classes: 'ecl-link ecl-link--standalone',
-          type: 'button',
-          variant: 'tertiary',
-        },
-        close: {
-          label: _popover_close_label,
-          hide_label: true,
-        },
-        extra_classes: 'ecl-description-list__popover',
-        extra_attributes: [{ name: 'data-ecl-description-list-popover'}],
-      } only %}
-    </li>
-  {% endset %}
 {% endif %}
+
+{% macro popover(more_label, close_label) %}
+  <li class="ecl-description-list__see_more">
+    {% include '@ecl/popover/popover.html.twig' with {
+      toggle: {
+        label: more_label,
+        extra_classes: 'ecl-link ecl-link--standalone',
+        type: 'button',
+        variant: 'tertiary',
+      },
+      close: {
+        label: close_label,
+        hide_label: true,
+      },
+      extra_classes: 'ecl-description-list__popover',
+      extra_attributes: [{ name: 'data-ecl-description-list-popover'}],
+    } only %}
+  </li>
+{% endmacro %}
+
+{% macro definition_attributes(visible_items, item) %}
+  {% if visible_items > 0 %}
+    data-ecl-description-list-collapsible
+  {% endif %}
+  {% if item.more_popover and item.definition|length > visible_items %}
+    data-ecl-description-list-has-popover
+  {% endif %}
+{% endmacro %}
 
 {% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
@@ -108,9 +119,7 @@
           {% if _item.type is not empty and _item.type == 'taxonomy' %}
             <dd class="ecl-description-list__definition ecl-description-list__definition--taxonomy">
               <ul class="ecl-description-list__definition-list"
-              {%- if _visible_items > 0 -%}
-                data-ecl-description-list-collapsible
-              {%- endif -%}
+                {{ macros.definition_attributes(_visible_items, _item) }}
               >
               {%- for _definition in _item.definition -%}
                 <li class="ecl-description-list__definition-item">
@@ -123,8 +132,8 @@
                 {%- endif -%}
                 </li>
               {%- endfor -%}
-              {% if _item.more_popover %}
-                {{- _popover_markup -}}
+              {% if _item.more_popover and _item.definition|length > _visible_items %}
+                {{ macros.popover(_more_label, _popover_close_label) }}
               {% endif %}
               </ul>
             </dd>
@@ -133,9 +142,7 @@
           {% elseif _item.type is not empty and _item.type == 'link' %}
             <dd class="ecl-description-list__definition ecl-description-list__definition--link">
               <ul class="ecl-description-list__definition-list"
-              {%- if _visible_items > 0 -%}
-                data-ecl-description-list-collapsible
-              {%- endif -%}
+                {{ macros.definition_attributes(_visible_items, _item) }}
               >
               {% for _definition in _item.definition %}
                 <li class="ecl-description-list__definition-item">
@@ -144,8 +151,8 @@
                 }) only %}
                 </li>
               {% endfor %}
-              {% if _item.more_popover %}
-                {{- _popover_markup -}}
+              {% if _item.more_popover and _item.definition|length > _visible_items %}
+                {{ macros.popover(_more_label, _popover_close_label) }}
               {% endif %}
               </ul>
             </dd>
@@ -154,9 +161,7 @@
           {% elseif _item.type is not empty and _item.type == 'link-inline' %}
             <dd class="ecl-description-list__definition ecl-description-list__definition--inline">
               <ul class="ecl-description-list__definition-list"
-              {%- if _visible_items > 0 -%}
-                data-ecl-description-list-collapsible
-              {%- endif -%}
+                {{ macros.definition_attributes(_visible_items, _item) }}
               >
               {%- for _definition in _item.definition -%}
                 <li class="ecl-description-list__definition-item">
@@ -169,8 +174,8 @@
                 {%- endif -%}
                 </li>
               {%- endfor -%}
-              {% if _item.more_popover %}
-                {{- _popover_markup -}}
+              {% if _item.more_popover and _item.definition|length > _visible_items %}
+                {{ macros.popover(_more_label, _popover_close_label) }}
               {% endif %}
               </ul>
             </dd>
@@ -179,12 +184,7 @@
           {% elseif _item.type is not empty and _item.type == 'tag' %}
             <dd class="ecl-description-list__definition ecl-description-list__definition--tag">
               <ul class="ecl-description-list__definition-list"
-              {%- if _visible_items > 0 -%}
-                data-ecl-description-list-collapsible
-                {% if _item.more_popover %}
-                  data-ecl-description-list-has-popover
-                {% endif %}
-              {%- endif -%}
+              {{ macros.definition_attributes(_visible_items, _item) }}
               >
               {% for _definition in _item.definition %}
                 <li class="ecl-description-list__definition-item">
@@ -193,8 +193,8 @@
                 }) only %}
                 </li>
               {% endfor %}
-              {% if _item.more_popover %}
-                {{- _popover_markup -}}
+              {% if _item.more_popover and _item.definition|length > _visible_items %}
+                {{ macros.popover(_more_label, _popover_close_label) }}
               {% endif %}
               </ul>
             </dd>
