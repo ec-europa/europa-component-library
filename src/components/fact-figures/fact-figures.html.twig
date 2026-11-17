@@ -1,4 +1,3 @@
-{% import _self as fact_figures %}
 {% apply spaceless %}
 
 {#
@@ -25,7 +24,6 @@
       - "path" (string) (default: '')
   - "display_icons" (boolean) (default: true)
   - "icon_size" (string) (default: 'l'): l or 2xl
-  - "sources_label" (string) (default: ''): label for global sources
   - "sources_label" (string) (default: '') Label displayed before the global sources list
   - "sources" (array) (default: []) Array of global source references (ECL link objects or plain strings)
     - "link" (object) ECL link object:
@@ -83,51 +81,6 @@
   {% endfor %}
 {% endif %}
 
-{# Define sources macro #}
-
-{% macro render_sources(sources, label) %}{% apply spaceless %}
-  {% if label is not empty %}
-    <span class="ecl-fact-figures__sources-label">
-      {{- label -}}
-    </span>
-  {% endif %}
-
-  {% if sources|length == 1 %}
-    {% set source = sources|first %}
-    {% if source.link is defined and source.link is not empty %}
-      {% include '@ecl/link/link.html.twig' with {
-        link: source.link|merge({
-          no_icon_wrapping: true,
-        }),
-        extra_classes: 'ecl-fact-figures__source',
-      } only %}
-    {% else %}
-      <span class="ecl-fact-figures__source">
-        {{ source.name }}
-      </span>
-    {% endif %}
-  {% elseif sources|length > 1 %}
-    <ul class="ecl-fact-figures__sources-list">
-      {% for source in sources %}
-        <li class="ecl-fact-figures__sources-item">
-          {% if source.link is defined and source.link is not empty %}
-            {% include '@ecl/link/link.html.twig' with {
-              link: source.link|merge({
-                no_icon_wrapping: true,
-              }),
-              extra_classes: 'ecl-fact-figures__source',
-            } only %}
-          {% else %}
-            <span class="ecl-fact-figures__source">
-              {{- source.name -}}
-            </span>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-{% endapply %}{% endmacro %}
-
 <div
   class="{{ _css_class }}"
   {{ _extra_attributes|raw }}
@@ -181,7 +134,10 @@
         {# Individual sources #}
         {% if item.sources is not empty and item.sources is iterable %}
           <div class="ecl-fact-figures__sources">
-            {{ fact_figures.render_sources(item.sources, item.sources_label|default(_sources_label)) }}
+            {% include '@ecl/source/source.html.twig' with {
+              sources: item.sources,
+              label: item.sources_label|default(_sources_label),
+            } only %}
           </div>
         {% endif %}
       </div>
@@ -192,7 +148,10 @@
   {# Global sources #}
   {% if _sources is not empty and _sources is iterable %}
     <div class="ecl-fact-figures__sources">
-      {{ fact_figures.render_sources(_sources, _sources_label) }}
+      {% include '@ecl/source/source.html.twig' with {
+        sources: _sources,
+        label: _sources_label,
+      } only %}
     </div>
   {% endif %}
 
