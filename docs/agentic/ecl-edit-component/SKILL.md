@@ -1,6 +1,6 @@
 ---
-name: ecl-modify-component
-description: Guides changes to an existing ECL component in src/components/ — styles and design tokens, Twig markup and parameters, responsive layout, print styles, images. Use when the user asks to fix, restyle, extend, add a parameter or variant to, or otherwise change a component that already exists. For Storybook-only changes use ecl-story-controls; for EC palette/color-mode tokens use ecl-update-token.
+name: ecl-edit-component
+description: Guides changes to an existing ECL component in src/components/ — styles and design tokens, Twig markup and parameters, responsive layout, print styles, images. Use when the user asks to fix, restyle, extend, add a parameter or variant to, or otherwise change a component that already exists. For Storybook-only changes use ecl-edit-story; for EC palette/color-mode tokens use ecl-edit-color-tokens.
 ---
 
 # Modify an existing ECL component
@@ -68,7 +68,7 @@ the `@use` line at the top of the file.
   - `{name}.html.twig` — declare in the header and use it
   - `demo/data.js` — sensible default value
   - `{name}.story.js` — only if a control is useful; ask the user when unsure, then
-    follow `ecl-story-controls`
+    follow `ecl-edit-story`
   - `README.md` — Parameters section
 
 **Images** — if the task adds or changes an image, read
@@ -83,4 +83,4 @@ pnpm test:components -- <name>    # only if the Twig template or demo data chang
 ```
 
 Snapshots capture rendered HTML, so SCSS and token-only changes cannot affect them.
-If a snapshot fails, follow `ecl-testing` — never update with `-u` before reading the diff.
+If a snapshot fails, follow `ecl-test-component` — never update with `-u` before reading the diff.

@@ -101,13 +101,13 @@ See [`docs/ec-eu-systems.md`](./docs/ec-eu-systems.md) for full details.
 
 Step-by-step guides for common AI tasks live in [`docs/agentic/`](./docs/agentic/README.md):
 
-| Task                                | Skill file                                                                                   |
-| ----------------------------------- | -------------------------------------------------------------------------------------------- |
-| Create a new component              | [`docs/agentic/ecl-new-component/SKILL.md`](./docs/agentic/ecl-new-component/SKILL.md)       |
-| Modify an existing component        | [`docs/agentic/ecl-modify-component/SKILL.md`](./docs/agentic/ecl-modify-component/SKILL.md) |
-| Run tests / fix snapshots / fix axe | [`docs/agentic/ecl-testing/SKILL.md`](./docs/agentic/ecl-testing/SKILL.md)                   |
-| Add or update Storybook stories     | [`docs/agentic/ecl-story-controls/SKILL.md`](./docs/agentic/ecl-story-controls/SKILL.md)     |
-| Update EC color tokens              | [`docs/agentic/ecl-update-token/SKILL.md`](./docs/agentic/ecl-update-token/SKILL.md)         |
+| Task                                | Skill file                                                                                     |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Create a new component              | [`docs/agentic/ecl-create-component/SKILL.md`](./docs/agentic/ecl-create-component/SKILL.md)   |
+| Modify an existing component        | [`docs/agentic/ecl-edit-component/SKILL.md`](./docs/agentic/ecl-edit-component/SKILL.md)       |
+| Run tests / fix snapshots / fix axe | [`docs/agentic/ecl-test-component/SKILL.md`](./docs/agentic/ecl-test-component/SKILL.md)       |
+| Add or update Storybook stories     | [`docs/agentic/ecl-edit-story/SKILL.md`](./docs/agentic/ecl-edit-story/SKILL.md)               |
+| Update EC color tokens              | [`docs/agentic/ecl-edit-color-tokens/SKILL.md`](./docs/agentic/ecl-edit-color-tokens/SKILL.md) |
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-name: ecl-new-component
-description: Scaffolds a brand-new ECL component package (@ecl/{name}) and registers it everywhere it must appear — theme variables, EC/EU presets, twig-templates, website pages and CMS config. Use when the user asks to create, add or scaffold a new component that does not exist yet in src/components/. Not for changing an existing component (use ecl-modify-component).
+name: ecl-create-component
+description: Scaffolds a brand-new ECL component package (@ecl/{name}) and registers it everywhere it must appear — theme variables, EC/EU presets, twig-templates, website pages and CMS config. Use when the user asks to create, add or scaffold a new component that does not exist yet in src/components/. Not for changing an existing component (use ecl-edit-component).
 ---
 
 # Create a new ECL component
@@ -120,7 +120,7 @@ pnpm lint                        # Stylelint flags e.g. empty rule blocks
 ```
 
 Read the generated snapshot once to confirm the markup is what you intended — see
-`ecl-testing` for how snapshots and axe failures are handled.
+`ecl-test-component` for how snapshots and axe failures are handled.
 
 ## Checklist
 

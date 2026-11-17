@@ -1,5 +1,5 @@
 ---
-name: ecl-testing
+name: ecl-test-component
 description: Runs and fixes ECL component tests (Vitest snapshot + jest-axe accessibility) and owns the rules for when to run them and when snapshots may be updated. Use when tests fail, a snapshot diff needs reviewing or updating, an axe violation must be fixed, or new test cases are being added to a {name}.test.js file.
 ---
 

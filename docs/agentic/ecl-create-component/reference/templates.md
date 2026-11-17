@@ -250,7 +250,7 @@ export default <NamePascal>;
 Replace `<NAME_PASCAL_SCREAMING>` with the SCREAMING_SNAKE_CASE key used in `ECL.autoInit` options (e.g. `SLIDER`, `EXPANDABLE`).
 
 Add `getArgs(data)` / `getArgTypes(data)` parameters only once the functions actually
-read from `data` (see `ecl-story-controls`).
+read from `data` (see `ecl-edit-story`).
 
 ## `demo/data.js`
 

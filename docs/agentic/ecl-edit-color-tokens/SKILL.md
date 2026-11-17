@@ -1,5 +1,5 @@
 ---
-name: ecl-update-token
+name: ecl-edit-color-tokens
 description: Updates EC (European Commission) color design tokens — palette hex values in src/themes/ec/maps/color.scss, color-mode semantic tokens (--cm-*), custom properties and the website colours page — from a Figma/design-tool export file or inline name=value pairs. Use when the user asks to change, add, rename or sync EC colors, palette stops or color-mode tokens. EC only; EU has no color modes.
 ---
 
@@ -19,7 +19,7 @@ Ask the user:
 
 - **If a file is provided**: read it in full with the Read tool before continuing.
 - **If no file**: the user must supply the changes inline (token name → hex value pairs).
-  They can also be passed as arguments when calling the skill: `/ecl-update-token primary-600=#0046ff`.
+  They can also be passed as arguments when calling the skill: `/ecl-edit-color-tokens primary-600=#0046ff`.
 
 ---
 

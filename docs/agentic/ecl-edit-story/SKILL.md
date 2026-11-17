@@ -1,5 +1,5 @@
 ---
-name: ecl-story-controls
+name: ecl-edit-story
 description: Adds or changes Storybook stories and controls for ECL components ({name}.story.js) — the getArgs / getArgTypes / prepareData pattern, new story variants, toggles for optional content, conditional controls, EC color-mode and icon-picker controls. Use when the user asks to add, fix or tweak a story, a Storybook control/arg, or the Twig include example shown in the notes panel.
 ---
 
@@ -188,7 +188,7 @@ argTypes.picture_size = {
 
 Run `pnpm lint`. Skip snapshot tests for story-only changes: Vitest renders the demo
 data directly, so `getArgs`, `getArgTypes` and `prepareData` cannot affect snapshots.
-Run them (see `ecl-testing`) only if the Twig template or demo data also changed.
+Run them (see `ecl-test-component`) only if the Twig template or demo data also changed.
 
 ## Control types reference
 
