@@ -51,6 +51,12 @@ $quiz: (
     third-option-background: var(--c-w-600),
     option-font: var(--f-m),
     icon-overlap: calc(-1 * var(--s-2xl)),
+    micro-title: (
+      font: var(--f-s),
+      letter-spacing: 2px,
+      font-weight: map.get($font-weight, 'bold'),
+      margin: var(--s-2xs),
+    ),
   ),
   card-back: (
     background: #fff,

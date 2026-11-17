@@ -76,6 +76,7 @@ $quiz-print: null !default;
   }
 
   .ecl-quiz-card__header {
+    display: inline-flex;
     height: map.get($theme, 'icon-print', '2xl');
   }
 
@@ -86,7 +87,6 @@ $quiz-print: null !default;
   .ecl-quiz-card__header,
   .ecl-quiz-card__question,
   .ecl-quiz-card__answer {
-    display: inline-flex;
     min-height: auto !important;
   }
 
@@ -96,7 +96,14 @@ $quiz-print: null !default;
 
   .ecl-quiz-card__question,
   .ecl-quiz-card__answer {
+    display: flex;
+    flex-direction: column;
     margin-inline-start: map.get($theme, 'spacing-print', 's');
+  }
+
+  .ecl-quiz-card__micro-title {
+    font: map.get($theme, 'font-print', 's');
+    text-transform: uppercase;
   }
 
   .ecl-quiz-card__option {
