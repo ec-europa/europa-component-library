@@ -13,6 +13,7 @@ into `docs/conventions/` or `docs/decisions/`.
 | [ecl-create-component](./ecl-create-component/SKILL.md)   | Scaffolding a brand-new component from scratch                 |
 | [ecl-edit-component](./ecl-edit-component/SKILL.md)       | Changing styles, markup, or behaviour of an existing component |
 | [ecl-test-component](./ecl-test-component/SKILL.md)       | Running tests, handling snapshot updates, fixing axe failures  |
+| [ecl-review-pr](./ecl-review-pr/SKILL.md)                 | Reviewing a colleague's pull request (local report)            |
 | [ecl-edit-story](./ecl-edit-story/SKILL.md)               | Adding or modifying Storybook stories and controls             |
 | [ecl-edit-color-tokens](./ecl-edit-color-tokens/SKILL.md) | Updating EC color tokens from a design export or inline values |
 
@@ -45,7 +46,7 @@ ecl-<task>/
 `name:` field.
 
 - **Verb** — one of `create` (something new), `edit` (change something that exists),
-  `test`. Add a new verb only when none of these fits.
+  `test`, `review`. Add a new verb only when none of these fits.
 - **Object** — the ECL concept the skill acts on, singular unless the skill handles a
   set (`color-tokens`).
 - The `ecl-` prefix keeps the skills unambiguous when other skill sets are installed.

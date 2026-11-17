@@ -108,6 +108,7 @@ Step-by-step guides for common AI tasks live in [`docs/agentic/`](./docs/agentic
 | Run tests / fix snapshots / fix axe | [`docs/agentic/ecl-test-component/SKILL.md`](./docs/agentic/ecl-test-component/SKILL.md)       |
 | Add or update Storybook stories     | [`docs/agentic/ecl-edit-story/SKILL.md`](./docs/agentic/ecl-edit-story/SKILL.md)               |
 | Update EC color tokens              | [`docs/agentic/ecl-edit-color-tokens/SKILL.md`](./docs/agentic/ecl-edit-color-tokens/SKILL.md) |
+| Review a colleague's pull request   | [`docs/agentic/ecl-review-pr/SKILL.md`](./docs/agentic/ecl-review-pr/SKILL.md)                 |
 
 ---
 
