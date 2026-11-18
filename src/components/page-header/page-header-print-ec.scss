@@ -11,6 +11,10 @@ $theme: null !default;
 $page-header: null !default;
 $page-header-print: null !default;
 
+.ecl-page-header {
+  color: map.get($page-header, 'color');
+}
+
 // Picture
 .ecl-page-header__background {
   display: block;
@@ -37,13 +41,18 @@ $page-header-print: null !default;
   }
 }
 
+// No dark variant in print: it uses the medium background and the default text color,
+// as light text would disappear when backgrounds are not printed
+.ecl-page-header--background-light {
+  background-color: var(--cm-surface-low-2);
+}
+
 .ecl-page-header--picture-beside.ecl-page-header--background {
   padding-block-end: 0;
 }
 
 // Title
 .ecl-page-header__title {
-  color: map.get($page-header, 'title', 'color');
   font: map.get($page-header-print, 'title', 'font');
   letter-spacing: map.get($page-header, 'title', 'letter-spacing');
   margin-block: 0;
@@ -67,7 +76,6 @@ $page-header-print: null !default;
 }
 
 .ecl-page-header__description {
-  color: map.get($page-header, 'description', 'color');
   font: map.get($page-header-print, 'description', 'font');
   font-weight: map.get($page-header, 'description', 'font');
   margin-block: 0;
@@ -98,7 +106,6 @@ $page-header-print: null !default;
 
 // Meta
 .ecl-page-header__meta {
-  color: map.get($page-header, 'meta', 'color');
   display: inline-block;
   font: map.get($page-header-print, 'meta', 'font');
   list-style: none;
@@ -165,6 +172,21 @@ $page-header-print: null !default;
     flex-direction: column;
     flex-grow: 1;
     justify-content: center;
+  }
+
+  .ecl-page-header__title {
+    padding-block-start: 0;
+  }
+}
+
+// Picture and text inside the main container
+.ecl-page-header--picture-contained {
+  .ecl-page-header__container {
+    column-gap: map.get($theme, 'grid', 'gutter-print');
+  }
+
+  .ecl-page-header__section-info {
+    padding-inline: 0;
   }
 }
 

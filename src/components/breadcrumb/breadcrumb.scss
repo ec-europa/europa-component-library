@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/link/link' as link-component;
 @use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
@@ -143,6 +144,21 @@ $breadcrumb: null !default;
 @include breakpoints.down('l') {
   .ecl-breadcrumb:has(.ecl-breadcrumb__container > li:only-child) {
     display: none;
+  }
+}
+
+// Inverted, on dark backgrounds; links and ellipsis use the link and button inverted tokens
+.ecl-breadcrumb--inverted {
+  .ecl-breadcrumb__link {
+    @include link-component.inverted-link;
+  }
+
+  .ecl-breadcrumb__icon {
+    color: map.get($breadcrumb, 'inverted', 'icon-color');
+  }
+
+  .ecl-breadcrumb__current-page {
+    color: map.get($breadcrumb, 'inverted', 'last-link-color');
   }
 }
 

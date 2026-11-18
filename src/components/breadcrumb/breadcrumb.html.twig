@@ -14,6 +14,7 @@
     - "ellipsis_text" (string) (default: '...'): Text of the ellipsis
     - "min_items_left" (integer) (default: 1): Minimum number of breadcrumb items to display on the left side before ellipsis
     - "min_items_right" (integer) (default: 2): Minimum number of breadcrumb items to display on the right side after ellipsis
+    - "inverted" (boolean) (default: false): Inverted colors, to display on a dark background
     - "extra_classes" (string) (default: '')
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -34,6 +35,7 @@
 {% set _breadcrumb_segment_class = 'ecl-breadcrumb__segment' %}
 {% set _min_items_left = min_items_left|default(1) %}
 {% set _min_items_right = min_items_right|default(2) %}
+{% set _inverted = inverted|default(false) %}
 {% set _nav_attributes = [
   { name: 'aria-label', value: _navigation_text },
   { name: 'data-ecl-breadcrumb', value: 'true' }]
@@ -51,6 +53,10 @@
 {% set _css_class = 'ecl-breadcrumb' %}
 
 {# Internal logic - Process properties #}
+
+{% if _inverted %}
+  {% set _css_class = _css_class ~ ' ecl-breadcrumb--inverted' %}
+{% endif %}
 
 {% if _breadcrumb_size > (_min_items_left + _min_items_right) %}
   {% set _nav_attributes = _nav_attributes|merge([{ name: 'data-ecl-auto-init', value: 'Breadcrumb' }]) %}
@@ -103,7 +109,7 @@
             >
               {% include '@ecl/button/button.html.twig' with {
                 variant: 'tertiary',
-                style: 'neutral',
+                style: _inverted ? 'inverted' : 'neutral',
                 label: _ellipsis_text,
                 type: 'button',
                 size: 'm',

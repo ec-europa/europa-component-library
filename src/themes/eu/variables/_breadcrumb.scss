@@ -16,6 +16,10 @@ $breadcrumb: (
   icon-spacing-mobile: 0 var(--s-xs),
   icon-spacing-desktop: var(--s-xs),
   ghost-override: true,
+  inverted: (
+    last-link-color: map.get($color, 'white'),
+    icon-color: map.get($color, 'white'),
+  ),
   ellipsis: (
     background: var(--c-p-5),
     background-hover: var(--c-p-10),

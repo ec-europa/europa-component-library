@@ -2,7 +2,7 @@
 {#
   Parameters:
     - "color_mode" (string) The color mode name
-    - "has_background" (boolean) (default: false) Use a colored background
+    - "background_color" (string) (default: '') Background color; can be '' (none), 'light', 'medium' or 'dark'
     - "title" (string) (default: '') Title of header
     - "hide_title" (boolean) (default: false) Hide the h1 title, for screen reader only
     - "description" (string) (default: '') Description of page header
@@ -15,7 +15,9 @@
       }
     - "picture_thumbnail" (associative array) (default: {}): Image for thumbnail, following ECL Picture structure
     - "picture_background" (associative array) (default: {}): Image for background, following ECL Picture structure
-    - "picture_position" (string) (default: 'top') Position of the picture; can be 'top', 'beside' or 'bottom'
+    - "picture_position" (string) (default: 'top'): Position of the picture; can be 'top', 'beside', 'beside-right' or 'bottom'
+    - "picture_highlighted" (boolean) (default: false): Highlight the background picture; only when it is placed beside
+    - "picture_contained" (boolean) (default: false): Keep the background picture inside the main container; only when the picture is placed beside
     - "meta" (array) (default: []) Meta of header; could be an array of string, or objects (label, icon)
     - "breadcrumb" (associative array) (default: '') Predefined structure compatible with ECL Breadcrumb
     - "extra_classes" (string) (default: '') Extra classes (space separated)
@@ -27,10 +29,15 @@
       ]
 #}
 
+{# DEPRECATED
+  - "has_background" (boolean) (default: false) Use a colored background
+#}
+{% set _has_background = has_background|default(false) %}
+
 {# Internal properties #}
 
 {% set _color_mode = color_mode|default('') %}
-{% set _has_background = has_background|default(false) %}
+{% set _background_color = background_color|default('') %}
 {% set _title = title|default('') %}
 {% set _hide_title = hide_title|default(false) %}
 {% set _meta = meta|default([]) %}
@@ -39,11 +46,18 @@
 {% set _picture_thumbnail = picture_thumbnail|default({}) %}
 {% set _picture_background = picture_background|default({}) %}
 {% set _picture_position = picture_position|default('top') %}
+{% set _picture_highlighted = picture_highlighted|default(false) %}
+{% set _picture_contained = picture_contained|default(false) %}
 {% set _breadcrumb = breadcrumb|default({}) %}
 {% set _css_class = 'ecl-page-header' %}
 {% set _expandable = expandable|default({}) %}
 
 {% set _extra_attributes = '' %}
+
+{# Backward compatibility #}
+{% if _has_background and _background_color is empty %}
+  {% set _background_color = 'medium' %}
+{% endif %}
 
 {# Internal logic - Process properties #}
 
@@ -51,15 +65,38 @@
   {% set _css_class = _css_class ~ ' ' ~ 'ecl-color-mode--' ~ _color_mode %}
 {% endif %}
 
-{% if _has_background %}
+{% if _background_color is not empty %}
   {% set _css_class = _css_class ~ ' ecl-page-header--background' %}
+
+  {% if _background_color in ['light', 'dark'] %}
+    {% set _css_class = _css_class ~ ' ecl-page-header--background-' ~ _background_color %}
+  {% endif %}
 {% endif %}
 
 {% if _description is not empty %}
   {% set _css_class = _css_class ~ ' ecl-page-header--description-' ~ _description_position %}
 {% endif %}
 
+{% set _container_class = 'ecl-page-header__container' %}
+
+{% set _picture_beside = _picture_position in ['beside', 'beside-right'] %}
+{% set _picture_beside_rendered = _picture_beside and _picture_background.img is not empty %}
+
+{% if _picture_beside_rendered %}
+  {% if _picture_contained %}
+    {% set _css_class = _css_class ~ ' ecl-page-header--picture-contained' %}
+    {% set _container_class = _container_class ~ ' ecl-container' %}
+  {% endif %}
+
+  {% if _picture_highlighted %}
+    {% set _css_class = _css_class ~ ' ecl-page-header--picture-highlighted' %}
+  {% endif %}
+{% endif %}
+
 {% if _picture_background is not empty %}
+  {% if _picture_position == 'beside-right' %}
+    {% set _css_class = _css_class ~ ' ecl-page-header--picture-beside' %}
+  {% endif %}
   {% set _css_class = _css_class ~ ' ecl-page-header--picture-' ~ _picture_position %}
 {% endif %}
 
@@ -84,6 +121,7 @@
   {% set _breadcrumb_markup %}
     {%- include '@ecl/breadcrumb/breadcrumb.html.twig' with _breadcrumb|merge({
       extra_classes: 'ecl-page-header__breadcrumb',
+      inverted: _background_color == 'dark',
     }) only -%}
   {% endset %}
 {% endif %}
@@ -179,7 +217,9 @@
 {# Column content #}
 
 {% set _column_content_markup %}
-  {{- _picture_markup -}}
+  {% if _picture_position == 'beside' %}
+    {{- _picture_markup -}}
+  {% endif %}
 
   <div class="ecl-page-header__section-info ecl-container">
     {{- _breadcrumb_markup -}}
@@ -196,6 +236,10 @@
 
     {{- _meta_markup -}}
   </div>
+
+  {% if _picture_position == 'beside-right' %}
+    {{- _picture_markup -}}
+  {% endif %}
 {% endset %}
 
 {# Print the result #}
@@ -213,8 +257,8 @@
     {{- _picture_markup -}}
   {% endif %}
 
-  <div class="ecl-page-header__container">
-    {% if _picture_position == 'beside' %}
+  <div class="{{ _container_class }}">
+    {% if _picture_beside %}
       {{- _column_content_markup -}}
     {% else %}
       {{- _stack_content_markup -}}
