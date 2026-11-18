@@ -1,0 +1,100 @@
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "label" (string) (default: '') Label displayed before the sources
+  - "sources" (array) (default: []) Array of source references:
+    - "link" (object) ECL link object:
+      - "label" (string) (default: '') Link label
+      - "path" (string) (default: '') Link URL
+      or
+    - "name" (string) (default: '') Plain text source
+  - "inverted" (boolean) (default: false) Display on a dark background
+  - "branded" (boolean) (default: false) Use the brand variant for the links
+  - "extra_classes" (string) (default: '') Extra classes (space separated)
+  - "extra_attributes" (array) (default: []): format: [
+      {
+        "name" (string) (default: ''),
+        "value" (string) (default: '')
+      },
+      ...
+    ]
+#}
+
+{# Internal properties #}
+
+{% set _css_class = 'ecl-source' %}
+{% set _extra_attributes = '' %}
+{% set _label = label|default('') %}
+{% set _sources = sources|default([]) %}
+{% set _inverted = inverted|default(false) %}
+{% set _branded = branded|default(false) %}
+
+{# Internal logic - Process properties #}
+
+{% set _link_options = { no_icon_wrapping: true } %}
+
+{% if _inverted %}
+  {% set _css_class = _css_class ~ ' ecl-source--inverted' %}
+  {% set _link_options = _link_options|merge({ inverted: true }) %}
+{% endif %}
+
+{% if _branded %}
+  {% set _link_options = _link_options|merge({ branded: true }) %}
+{% endif %}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{# Print the result #}
+
+{% if _sources is not empty and _sources is iterable %}
+<div
+  class="{{ _css_class }}"
+  {{ _extra_attributes|raw }}
+>
+  {% if _label is not empty %}
+    <span class="ecl-source__label">
+      {{- _label -}}
+    </span>
+  {% endif %}
+
+  {% if _sources|length > 1 %}
+    <ul class="ecl-source__list">
+  {% endif %}
+  {% for source in _sources %}
+    {% if _sources|length > 1 %}
+      <li class="ecl-source__item">
+    {% endif %}
+    {% if source.link is defined and source.link is not empty %}
+      {% include '@ecl/link/link.html.twig' with {
+        link: source.link|merge(_link_options),
+        extra_classes: 'ecl-source__link',
+      } only %}
+    {% else %}
+      <span class="ecl-source__text">
+        {{- source.name -}}
+      </span>
+    {% endif %}
+    {% if _sources|length > 1 %}
+      </li>
+    {% endif %}
+  {% endfor %}
+  {% if _sources|length > 1 %}
+    </ul>
+  {% endif %}
+</div>
+{% endif %}
+
+{% endapply %}

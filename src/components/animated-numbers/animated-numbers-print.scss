@@ -103,60 +103,13 @@ $animated-numbers: null !default;
 }
 
 .ecl-animated-numbers__sources {
-  gap: map.get($theme, 'spacing-print', 'xs');
   margin-block-start: map.get($theme, 'spacing-print', 'm');
-  font: map.get($theme, 'font-print', 's');
 
   .ecl-animated-number__content & {
     margin-block-start: 0;
   }
 }
 
-.ecl-animated-numbers__source,
-.ecl-animated-numbers__sources-item {
-  display: inline;
-}
-
-.ecl-animated-numbers__source {
-  &:has(svg) {
-    white-space: nowrap;
-  }
-
-  .ecl-link__label {
-    white-space: normal;
-  }
-
-  .ecl-icon {
-    margin-inline-start: map.get($animated-numbers, 'source-separator-spacing');
-  }
-}
-
-.ecl-animated-numbers__sources-label {
-  display: inline-block;
-  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
-}
-
-.ecl-animated-numbers__sources-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: inline;
-}
-
-.ecl-animated-numbers__source {
+.ecl-animated-numbers .ecl-source__link {
   text-decoration: none;
-}
-
-.ecl-animated-numbers__sources-item:not(:last-child)::after {
-  color: map.get($animated-numbers, 'source-separator-color');
-  display: inline;
-  content: '\00a0| ';
-  padding-inline: map.get($animated-numbers, 'source-separator-spacing');
-  position: relative;
-  top: 2px;
-}
-
-.ecl-animated-numbers--with-background
-  .ecl-animated-numbers__sources-item:not(:last-child)::after {
-  color: var(--cm-on-surface-inverted, #fff);
 }
