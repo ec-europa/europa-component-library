@@ -5,13 +5,13 @@
   "version": "5.4.0",
   "scripts": {
     "clean": "rimraf build public/apis/*",
-    "postinstall": "npm run clean && ./scripts/docs.js && npm run predev",
-    "prebuild": "npm run clean && ./scripts/docs.js",
+    "postinstall": "pnpm run clean && ./scripts/docs.js && pnpm run predev",
+    "prebuild": "pnpm run clean && ./scripts/docs.js",
     "build:copy": "./scripts/copy.sh",
-    "build": "npm run predev && npm run prebuild && npm run build:copy && cross-env NODE_ENV=production vike build",
+    "build": "pnpm run predev && pnpm run prebuild && pnpm run build:copy && cross-env NODE_ENV=production vike build",
     "serve": "npx serve build/client -p 5173",
     "predev": "node prebuild/get-meta-ec.js && node prebuild/get-meta-eu.js",
-    "start": "npm run prebuild && npm run predev && concurrently \"npx serve src/website/public -p 6006\" \"vike dev\""
+    "start": "pnpm run prebuild && pnpm run predev && concurrently \"npx serve src/website/public -p 6006\" \"vike dev\""
   },
   "dependencies": {
     "@ecl/accordion": "5.4.0",
