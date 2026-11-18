@@ -114,6 +114,7 @@
 
       {% if _item.definition is not empty %}
         {% if _item.definition is iterable %}
+        {% set has_popover = _item.more_popover and _visible_items > 0 and _item.definition|length > _visible_items %}
 
           {# taxonomy #}
           {% if _item.type is not empty and _item.type == 'taxonomy' %}
@@ -132,7 +133,7 @@
                 {%- endif -%}
                 </li>
               {%- endfor -%}
-              {% if _item.more_popover and _item.definition|length > _visible_items %}
+              {% if has_popover %}
                 {{ macros.popover(_more_label, _popover_close_label) }}
               {% endif %}
               </ul>
@@ -151,7 +152,7 @@
                 }) only %}
                 </li>
               {% endfor %}
-              {% if _item.more_popover and _item.definition|length > _visible_items %}
+              {% if has_popover %}
                 {{ macros.popover(_more_label, _popover_close_label) }}
               {% endif %}
               </ul>
@@ -174,7 +175,7 @@
                 {%- endif -%}
                 </li>
               {%- endfor -%}
-              {% if _item.more_popover and _item.definition|length > _visible_items %}
+              {% if has_popover %}
                 {{ macros.popover(_more_label, _popover_close_label) }}
               {% endif %}
               </ul>
@@ -193,7 +194,7 @@
                 }) only %}
                 </li>
               {% endfor %}
-              {% if _item.more_popover and _item.definition|length > _visible_items %}
+              {% if has_popover %}
                 {{ macros.popover(_more_label, _popover_close_label) }}
               {% endif %}
               </ul>

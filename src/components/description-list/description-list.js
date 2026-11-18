@@ -240,8 +240,9 @@ export class DescriptionList {
       // If it contains a focusable element, focus that directly.
       // Otherwise, focus the item itself
       if (firstHiddenItem !== null) {
-        const focusableChild = firstHiddenItem.querySelector(
+        const focusableChild = queryOne(
           'a[href], button, input, [tabindex]:not([tabindex="-1"])',
+          firstHiddenItem,
         );
         (focusableChild || firstHiddenItem).focus();
       }
