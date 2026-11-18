@@ -19,7 +19,7 @@
     "clean": "rimraf build dist",
     "dist": "cross-env NODE_ENV=production run-p build:*",
     "watch": "cross-env ECL_SYSTEM=eu ecl-builder watch",
-    "prepublish": "npm run clean && npm run build && npm run dist"
+    "prepublish": "pnpm run clean && pnpm run build && pnpm run dist"
   },
   "dependencies": {
     "@ecl/accordion": "5.4.0",
