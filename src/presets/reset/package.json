@@ -16,7 +16,7 @@
     "clean": "rimraf build dist",
     "dist": "cross-env NODE_ENV=production run-p build:*",
     "watch": "ecl-builder watch",
-    "prepublish": "npm run clean && npm run build && npm run dist"
+    "prepublish": "pnpm run clean && pnpm run build && pnpm run dist"
   },
   "dependencies": {
     "normalize.css": "8.0.1"
