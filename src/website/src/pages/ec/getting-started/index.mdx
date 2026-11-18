@@ -42,10 +42,12 @@ ECL is distributed as a bundled package called a **preset**, which includes all 
 
 #### Option 1: Package Manager (Recommended)
 
-Install with npm:
+Install with npm or pnpm:
 
 ```bash
 npm install @ecl/preset-ec
+# or
+pnpm add @ecl/preset-ec
 ```
 
 **Benefits**: Easy version management, seamless updates, and the ability to rebuild resources if needed.
@@ -299,7 +301,7 @@ If you don't have restrictions on loading external scripts, you can include the 
 ```bash
 npm install @duetds/date-picker
 # or
-npm install @duetds/date-picker
+pnpm add @duetds/date-picker
 ```
 
 2. Import or bundle it in your build process:
@@ -316,6 +318,8 @@ import '@duetds/date-picker/dist/duet.esm.js';
 
 ```bash
 npm install @duetds/date-picker
+# or
+pnpm add @duetds/date-picker
 ```
 
 2. Copy the `dist` folder contents to a location your webserver can serve, for example:
@@ -430,6 +434,8 @@ For server-side rendering, ECL provides **Twig templates** for all components, a
 
 ```bash
 npm install @ecl/{component-name}
+# or
+pnpm add @ecl/{component-name}
 ```
 
 Templates are usually called `{component-name}.html.twig`
