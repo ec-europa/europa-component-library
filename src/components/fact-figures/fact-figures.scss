@@ -214,9 +214,12 @@ $fact-figures: null !default;
     margin-block-end: map.get($fact-figures, 'icon-highlighted-margin');
   }
 
-  .ecl-fact-figures__value,
-  .ecl-fact-figures__title {
+  .ecl-fact-figures__value {
     color: var(--cm-on-surface, var(--c-p));
+  }
+
+  .ecl-fact-figures__title {
+    color: var(--cm-on-surface-brand, var(--c-d));
   }
 
   .ecl-fact-figures__icon {
