@@ -647,11 +647,24 @@ $quiz: null !default;
   padding-block: map.get($quiz, 'card', 'question-answer-spacing');
   text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   @include mixins.responsive-font(
     map.get($quiz, 'card', 'question-answer-font'),
     map.get($quiz, 'card', 'question-answer-font-weight')
+  );
+}
+
+.ecl-quiz-card__micro-title {
+  letter-spacing: map.get($quiz, 'card', 'micro-title', 'letter-spacing');
+  margin-block-end: map.get($quiz, 'card', 'micro-title', 'margin');
+  text-transform: uppercase;
+
+  @include mixins.responsive-font(
+    map.get($quiz, 'card', 'micro-title', 'font'),
+    $font-weight: map.get($quiz, 'card', 'micro-title', 'font-weight')
   );
 }
 
@@ -684,6 +697,7 @@ $quiz: null !default;
   .ecl-quiz-card__question,
   .ecl-quiz-card__answer {
     align-items: start;
+    justify-content: start;
   }
 
   .ecl-quiz-card__header {
