@@ -4,16 +4,23 @@
  */
 
 @use 'sass:map';
+@use '@ecl/grid/mixins/breakpoints';
 @use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
 $description-list: null !default;
 
-.ecl-description-list,
-%ecl-description-list {
+// Container queries for ECL component
+.ecl-description-list {
   container-type: inline-size;
   container-name: ecl-list-container;
+  width: 100%;
+}
+
+// Default html <dl> uses media queries
+%ecl-description-list {
+  margin: 0;
 }
 
 .ecl-description-list__content {
@@ -194,44 +201,57 @@ $description-list: null !default;
 
 // Horizontal description lists
 
+@mixin horizontal($term, $definition) {
+  display: grid;
+  column-gap: var(--s-xl);
+  grid-template-columns: map.get($description-list, 'term-width') fit-content(
+      var(--max-w)
+    );
+
+  #{$term} {
+    // Explicit columns keep terms and definitions aligned when one is missing
+    grid-column: 1;
+    margin-bottom: 0;
+    margin-top: var(--s-l);
+  }
+
+  #{$term}:first-of-type {
+    margin-top: 0;
+  }
+
+  #{$definition} {
+    align-items: flex-start;
+    grid-column: 2;
+    margin-top: var(--s-l);
+    overflow-wrap: break-word;
+  }
+
+  #{$definition}:first-of-type {
+    margin-top: 0;
+  }
+
+  dd:not(.ecl-description-list__definition--link)
+    .ecl-description-list__see_more {
+    display: inline-block;
+    margin-inline-start: var(--s-m);
+    margin-top: 0;
+  }
+}
+
 @container ecl-list-container (width >= #{map.get($theme, 'breakpoint', 'l')}) {
-  .ecl-description-list--horizontal .ecl-description-list__content,
+  .ecl-description-list--horizontal .ecl-description-list__content {
+    @include horizontal(
+      '.ecl-description-list__term',
+      '.ecl-description-list__definition'
+    );
+  }
+}
+
+@include breakpoints.up('l') {
   %ecl-description-list {
-    display: grid;
-    column-gap: var(--s-xl);
-    grid-template-columns: map.get($description-list, 'term-width') fit-content(
-        var(--max-w)
-      );
-
-    .ecl-description-list__term,
-    %ecl-description-list__term {
-      // Explicit columns keep terms and definitions aligned when one is missing
-      grid-column: 1;
-      margin-bottom: 0;
-      margin-top: var(--s-l);
-    }
-
-    .ecl-description-list__term:first-of-type {
-      margin-top: 0;
-    }
-
-    .ecl-description-list__definition,
-    %ecl-description-list__definition {
-      align-items: flex-start;
-      grid-column: 2;
-      margin-top: var(--s-l);
-      overflow-wrap: break-word;
-    }
-
-    .ecl-description-list__definition:first-of-type {
-      margin-top: 0;
-    }
-
-    dd:not(.ecl-description-list__definition--link)
-      .ecl-description-list__see_more {
-      display: inline-block;
-      margin-inline-start: var(--s-m);
-      margin-top: 0;
-    }
+    @include horizontal(
+      '%ecl-description-list__term',
+      '%ecl-description-list__definition'
+    );
   }
 }
