@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $breadcrumb: (
   padding-vertical: var(--s-xs),
@@ -19,3 +20,4 @@ $breadcrumb: (
     offset-horizontal: calc(-1 * var(--s-xs)),
   ),
 );
+$breadcrumb: overrides.apply('breadcrumb', $breadcrumb);

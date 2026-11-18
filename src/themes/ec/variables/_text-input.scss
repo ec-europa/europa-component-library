@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $text-input: (
   font: var(--f-s),
@@ -22,3 +23,4 @@ $text-input: (
   padding-block: var(--s-s),
   padding-inline: var(--s-s) var(--s-m),
 );
+$text-input: overrides.apply('text-input', $text-input);

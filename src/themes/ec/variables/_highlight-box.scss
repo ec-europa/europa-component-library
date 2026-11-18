@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $highlight-box: (
   shadow: none,
@@ -18,3 +19,4 @@ $highlight-box: (
     padding: var(--s-xl) var(--s-l),
   ),
 );
+$highlight-box: overrides.apply('highlight-box', $highlight-box);

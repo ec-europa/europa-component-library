@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $datepicker: (
   input-icon-color: var(--cm-on-surface-brand),
@@ -13,3 +14,4 @@ $datepicker: (
     day-selected-background: var(--cm-on-surface-primary),
   ),
 );
+$datepicker: overrides.apply('datepicker', $datepicker);

@@ -1,0 +1,15 @@
+@use 'sass:map';
+
+// Partial overrides of component variable maps, keyed by map name, e.g.
+// ('card': ('border-radius': 16px), 'button': ('radius': 8px)).
+$overrides: () !default;
+
+@function apply($name, $map) {
+  $override: map.get($overrides, $name);
+
+  @if $override {
+    @return map.deep-merge($map, $override);
+  }
+
+  @return $map;
+}

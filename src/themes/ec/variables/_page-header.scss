@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $page-header: (
   title: (
@@ -22,6 +23,7 @@ $page-header: (
     first-font: 'body-xs',
   ),
 );
+$page-header: overrides.apply('page-header', $page-header);
 $page-header-print: (
   title: (
     font: map.get($font-print, '8xl'),
@@ -33,3 +35,4 @@ $page-header-print: (
     font: map.get($font-print, 'xs'),
   ),
 );
+$page-header-print: overrides.apply('page-header-print', $page-header-print);

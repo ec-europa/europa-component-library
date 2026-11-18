@@ -1,8 +1,10 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $file-upload: (
   separator-color: var(--cm-border-neutral),
   meta-color: var(--cm-on-surface-grey-medium),
   list-font: 'body-m',
 );
+$file-upload: overrides.apply('file-upload', $file-upload);

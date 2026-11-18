@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $animated-numbers: (
   background-spacing: var(--s-13xl) var(--s-xl),
@@ -29,3 +30,4 @@ $animated-numbers: (
   shadow: map.get($shadow, '2'),
   min-width: 18rem,
 );
+$animated-numbers: overrides.apply('animated-numbers', $animated-numbers);

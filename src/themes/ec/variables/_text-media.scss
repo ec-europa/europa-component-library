@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $text-media: (
   background-default: var(--cm-surface-0-text-media),
@@ -27,3 +28,4 @@ $text-media: (
     spacing: var(--s-3xl),
   ),
 );
+$text-media: overrides.apply('text-media', $text-media);

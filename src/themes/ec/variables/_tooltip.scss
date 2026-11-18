@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $tooltip: (
   background: var(--cm-surface-brand),
@@ -11,3 +12,4 @@ $tooltip: (
   border-radius: map.get($border-radius, 'xs'),
   shadow: var(--sh-2),
 );
+$tooltip: overrides.apply('tooltip', $tooltip);

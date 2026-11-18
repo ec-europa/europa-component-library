@@ -1,0 +1,34 @@
+/**
+ * Site header compact
+ * @define site-header-compact
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-color/mixins' as mixins-color;
+
+// Exposed variables
+$theme: null !default;
+$site-header-compact: null !default;
+
+.ecl-site-header-compact {
+  background: map.get($site-header-compact, 'background');
+  border-bottom: map.get($site-header-compact, 'border-bottom');
+}
+
+.ecl-site-header-compact__container {
+  display: flex;
+  align-items: center;
+  min-height: map.get($site-header-compact, 'height');
+}
+
+.ecl-site-header-compact__title {
+  color: map.get($site-header-compact, 'color');
+  font: map.get($site-header-compact, 'font');
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include mixins-color.focus-default;
+}

@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $rating-field: (
   checked-color: var(--cm-on-surface-brand),
@@ -9,3 +10,4 @@ $rating-field: (
   checked-focus-stroke: var(--cm-on-surface-brand),
   focus-outline: var(--cm-on-surface-brand),
 );
+$rating-field: overrides.apply('rating-field', $rating-field);

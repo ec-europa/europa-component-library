@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $tag: (
   font: var(--f-s),
@@ -18,3 +19,4 @@ $tag: (
   color-disabled: var(--cm-on-surface-grey),
   background-color-disabled: var(--cm-surface-grey-low-1),
 );
+$tag: overrides.apply('tag', $tag);

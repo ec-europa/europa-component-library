@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $checkbox: (
   checkbox-fill: var(--cm-surface-inverted),
@@ -43,3 +44,4 @@ $checkbox: (
     border-color: var(--cm-border-grey-medium),
   ),
 );
+$checkbox: overrides.apply('checkbox', $checkbox);

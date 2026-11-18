@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $typography: (
   font-family: var(--ff-d),
@@ -326,6 +327,7 @@ $typography: (
     ),
   ),
 );
+$typography: overrides.apply('typography', $typography);
 $typography-print: (
   heading-margin: map.get($spacing-print, '3xl') 0 map.get($spacing-print, 'm'),
   display: map.get($font-print, '10xl'),
@@ -337,3 +339,4 @@ $typography-print: (
   heading6: map.get($font-print, 'l'),
   enhance-font: map.get($font-print, '2xl'),
 );
+$typography-print: overrides.apply('typography-print', $typography-print);

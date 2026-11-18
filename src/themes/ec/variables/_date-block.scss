@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $date-block: (
   background-color-cancelled: var(--cm-surface-lowest),
@@ -38,6 +39,7 @@ $date-block: (
     font: var(--f-xs),
   ),
 );
+$date-block: overrides.apply('date-block', $date-block);
 $date-block-print: (
   day: (
     padding: map.get($spacing-print, 's') map.get($spacing-print, '2xs')
@@ -53,3 +55,4 @@ $date-block-print: (
     font: map.get($font-print, 'xs'),
   ),
 );
+$date-block-print: overrides.apply('date-block-print', $date-block-print);

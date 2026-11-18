@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $pagination: (
   border-color: var(--c-n),
@@ -25,3 +26,4 @@ $pagination: (
   prev-next-hover-shadow: none,
   text-color: var(--c-d),
 );
+$pagination: overrides.apply('pagination', $pagination);

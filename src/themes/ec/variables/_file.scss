@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $file: (
   background-color: var(--cm-surface-inverted),
@@ -51,3 +52,4 @@ $file: (
     action-color: var(--cm-on-surface-primary),
   ),
 );
+$file: overrides.apply('file', $file);

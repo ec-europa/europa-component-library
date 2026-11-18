@@ -1,0 +1,10 @@
+@use 'config';
+@use '@ecl/preset-ec/src/ec';
+@use '@ecl/theme-ec/theme';
+@use 'variables/site-header-compact' as var-site-header-compact;
+
+// EP-only components
+@use '@ecl/specific-site-header-compact/site-header-compact' with (
+  $theme: theme.$theme,
+  $site-header-compact: var-site-header-compact.$site-header-compact
+);

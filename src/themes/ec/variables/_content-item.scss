@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $content-item: (
   divider-color: var(--cm-border-neutral),
@@ -7,3 +8,4 @@ $content-item: (
   image-border-color: var(--cm-border-low),
   image-top-spacing: var(--s-xl),
 );
+$content-item: overrides.apply('content-item', $content-item);

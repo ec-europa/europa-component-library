@@ -1,0 +1,13 @@
+// EP configuration, loaded first by every entry so it applies before the EC sources.
+// Per-component overrides, merged into the EC component maps (src/themes/ec/variables).
+// Theme-wide primitives can be set the same way on '@ecl/theme-ec/theme'.
+@use '@ecl/theme-ec/overrides' with (
+  $overrides: (
+    'button': (
+      'radius': 8px,
+    ),
+    'card': (
+      'border-radius': 16px,
+    ),
+  )
+);
