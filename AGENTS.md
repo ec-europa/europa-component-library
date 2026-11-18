@@ -101,13 +101,14 @@ See [`docs/ec-eu-systems.md`](./docs/ec-eu-systems.md) for full details.
 
 Step-by-step guides for common AI tasks live in [`docs/agentic/`](./docs/agentic/README.md):
 
-| Task                                | Skill file                                                                       |
-| ----------------------------------- | -------------------------------------------------------------------------------- |
-| Create a new component              | [`docs/agentic/ecl-new-component.md`](./docs/agentic/ecl-new-component.md)       |
-| Modify an existing component        | [`docs/agentic/ecl-modify-component.md`](./docs/agentic/ecl-modify-component.md) |
-| Run tests / fix snapshots / fix axe | [`docs/agentic/ecl-testing.md`](./docs/agentic/ecl-testing.md)                   |
-| Add or update Storybook stories     | [`docs/agentic/ecl-story-controls.md`](./docs/agentic/ecl-story-controls.md)     |
-| Update EC color tokens              | [`docs/agentic/ecl-update-token.md`](./docs/agentic/ecl-update-token.md)         |
+| Task                                | Skill file                                                                                     |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Create a new component              | [`docs/agentic/ecl-create-component/SKILL.md`](./docs/agentic/ecl-create-component/SKILL.md)   |
+| Modify an existing component        | [`docs/agentic/ecl-edit-component/SKILL.md`](./docs/agentic/ecl-edit-component/SKILL.md)       |
+| Run tests / fix snapshots / fix axe | [`docs/agentic/ecl-test-component/SKILL.md`](./docs/agentic/ecl-test-component/SKILL.md)       |
+| Add or update Storybook stories     | [`docs/agentic/ecl-edit-story/SKILL.md`](./docs/agentic/ecl-edit-story/SKILL.md)               |
+| Update EC color tokens              | [`docs/agentic/ecl-edit-color-tokens/SKILL.md`](./docs/agentic/ecl-edit-color-tokens/SKILL.md) |
+| Review a colleague's pull request   | [`docs/agentic/ecl-review-pr/SKILL.md`](./docs/agentic/ecl-review-pr/SKILL.md)                 |
 
 ---
 
