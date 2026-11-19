@@ -10,6 +10,25 @@ import dataDescriptionListHorizontal from './demo/data--horizontal';
 
 expect.extend(toHaveNoViolations);
 
+const normalizeGeneratedIds = (element) => {
+  const generated = element.querySelectorAll('[id^="ecl-popover"]');
+
+  generated.forEach((item, index) => {
+    const stableId = `generated-id-${index}`;
+
+    const oldId = item.id;
+    item.id = stableId;
+
+    element
+      .querySelectorAll(`[aria-controls="${oldId}"]`)
+      .forEach((controller) => {
+        controller.setAttribute('aria-controls', stableId);
+      });
+  });
+
+  return element;
+};
+
 describe('Description list', () => {
   const template = '@ecl/description-list/description-list.html.twig';
   const render = (params) => renderTwigFileAsNode(template, params);
@@ -18,9 +37,11 @@ describe('Description list', () => {
     test('renders correctly', () => {
       expect.assertions(1);
 
-      return expect(
-        render(dataDescriptionListDefault),
-      ).resolves.toMatchSnapshot();
+      return render(dataDescriptionListDefault).then((element) => {
+        normalizeGeneratedIds(element);
+
+        expect(element).toMatchSnapshot();
+      });
     });
 
     test('renders correctly in the horizontal variant', () => {
@@ -30,7 +51,11 @@ describe('Description list', () => {
         variant: 'horizontal',
       });
 
-      return expect(render(horizontal)).resolves.toMatchSnapshot();
+      return render(horizontal).then((element) => {
+        normalizeGeneratedIds(element);
+
+        expect(element).toMatchSnapshot();
+      });
     });
 
     test('renders correctly with extra class names', () => {
@@ -40,7 +65,11 @@ describe('Description list', () => {
         extra_classes: 'custom-class custom-class--test',
       });
 
-      return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
+      return render(withExtraClasses).then((element) => {
+        normalizeGeneratedIds(element);
+
+        expect(element).toMatchSnapshot();
+      });
     });
 
     test('renders correctly with extra attributes', () => {
@@ -53,7 +82,11 @@ describe('Description list', () => {
         ],
       });
 
-      return expect(render(withExtraAttributes)).resolves.toMatchSnapshot();
+      return render(withExtraAttributes).then((element) => {
+        normalizeGeneratedIds(element);
+
+        expect(element).toMatchSnapshot();
+      });
     });
 
     test('passes the accessibility tests', async () => {

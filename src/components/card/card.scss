@@ -18,13 +18,14 @@ $card: null !default;
   box-sizing: border-box;
   height: 100%;
   margin: 0;
-  overflow: hidden;
   overflow-wrap: break-word;
   width: 100%;
 }
 
 .ecl-card__image {
   aspect-ratio: 3/2;
+  border-start-start-radius: map.get($card, 'border-radius');
+  border-start-end-radius: map.get($card, 'border-radius');
   display: block;
   height: auto;
   object-fit: cover;
