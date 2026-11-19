@@ -64,7 +64,11 @@ export function createConfig(system, configDir) {
               'utilities',
             ].map((dir) => path.resolve(sourceRoot, dir)),
           }),
-          nodePolyfills(),
+          nodePolyfills({
+            globals: {
+              process: false,
+            },
+          }),
         ],
         define: Object.fromEntries(
           Object.entries(environment).map(([name, value]) => [
