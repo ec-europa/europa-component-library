@@ -183,6 +183,12 @@ export const parameters = {
         picked: false,
         group: 'print',
       },
+      {
+        id: 'ecl-ec-ep',
+        href: './styles/optional/ecl-ec-ep.css',
+        picked: false,
+        group: 'site',
+      },
     ],
   },
   options: {
