@@ -6,6 +6,7 @@ import getSystem from '@ecl/builder/utils/getSystem';
 import demoData from './demo/data';
 import categoryFilter from './category-filter.html.twig';
 import notes from './README.md?raw';
+console.log(getSystem());
 
 const getArgs = () => {
   const args = {
@@ -31,9 +32,8 @@ const getArgTypes = () => ({
     name: 'use name',
     type: { name: 'boolean' },
     description:
-      'Use a name to link the first level items (only one item open). Ignored when the expand/collapse all buttons are displayed',
+      'Use a name to link the first level items (only one item open unless they were all expanded)',
     table: { type: { summary: 'boolean' }, category: 'Optional' },
-    if: { arg: 'show_controls', truthy: false },
   },
   ...getColorModeControls(),
 });

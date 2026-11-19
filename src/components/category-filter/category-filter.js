@@ -56,6 +56,7 @@ export class CategoryFilter {
     this.details = null;
     this.expandAllButton = null;
     this.collapseAllButton = null;
+    this.detailsName = '';
 
     // Bind `this` for use in callbacks
     this.handleClickItem = this.handleClickItem.bind(this);
@@ -165,11 +166,32 @@ export class CategoryFilter {
   handleClickItem(e) {
     // Get item even if we clicked on the icon
     const treeItem = e.target.closest(this.itemSelector);
+    // Check if the clicked item is in the first level and has an expanded details.
+    const isExpanded =
+      treeItem.classList.contains('ecl-category-filter__item--level-1') &&
+      treeItem.closest(this.detailsSelector)?.open;
+
     this.items.forEach((item) => {
+      const itemDetails = item.closest(this.detailsSelector);
+      const firstLevel = item.classList.contains(
+        'ecl-category-filter__item--level-1',
+      );
+
       if (item === treeItem) {
         item.setAttribute('aria-current', true);
       } else {
         item.removeAttribute('aria-current');
+      }
+
+      // Restore the name when expanding an item if it has been previously removed.
+      if (
+        firstLevel &&
+        !isExpanded &&
+        this.detailsName &&
+        itemDetails &&
+        !itemDetails?.name
+      ) {
+        itemDetails.name = this.detailsName;
       }
     });
   }
@@ -195,7 +217,12 @@ export class CategoryFilter {
     this.items.forEach((item) => {
       item.removeAttribute('aria-current');
     });
+    // If a name is set and we are expanding all the items remove the name
     this.details.forEach((details) => {
+      if (expanded && details.name) {
+        this.detailsName = details.name;
+        details.removeAttribute('name');
+      }
       details.open = expanded;
     });
   }
