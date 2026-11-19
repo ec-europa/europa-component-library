@@ -18,7 +18,7 @@ const clonedDataFull = { ...dataFull };
 const enMenu = { ...enDataMenu };
 const enMenuLong = { ...enDataMenuLong };
 const enMegaMenu = { ...enDataMegaMenu };
-const closeButton = { ...dataFull.notification.close };
+const closeButton = { ...dataFull.notification?.close };
 
 // Core
 const dataCore = JSON.parse(JSON.stringify(dataFull));
@@ -365,8 +365,8 @@ const prepareData = (data, args) => {
 
   if (!args.show_notification) {
     delete clone.notification;
-  } else {
-    clone.notification = clonedDataFull.notification;
+  } else if (clonedDataFull.notification) {
+    clone.notification = { ...clonedDataFull.notification };
     if (!args.show_notification_close) {
       delete clone.notification.close;
     } else {
