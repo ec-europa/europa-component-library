@@ -368,9 +368,9 @@ const prepareData = (data, args) => {
   } else {
     clone.notification = clonedDataFull.notification;
     if (!args.show_notification_close) {
-      delete clonedDataFull.notification.close;
+      delete clone.notification.close;
     } else {
-      clonedDataFull.notification.close = closeButton;
+      clone.notification.close = closeButton;
     }
   }
 
