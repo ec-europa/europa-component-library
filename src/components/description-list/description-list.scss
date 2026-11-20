@@ -234,4 +234,12 @@ $description-list: null !default;
       margin-top: 0;
     }
   }
+
+  // Fluid label width: the term column fits the longest term, capped by a max width
+  .ecl-description-list--fluid-label .ecl-description-list__content,
+  %ecl-description-list--fluid-label {
+    grid-template-columns:
+      fit-content(33%)
+      fit-content(var(--max-w));
+  }
 }

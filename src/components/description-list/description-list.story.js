@@ -22,12 +22,29 @@ const getArgs = (data) => {
     args.label = data.items[0].definition[0].label;
   }
   args.visibleItems = data.visible_items || 0;
+  if (data.variant === 'horizontal') {
+    args.fixedLabelWidth = true;
+  }
 
   return args;
 };
 
-const getArgTypes = () => {
+const getArgTypes = (data) => {
   const argTypes = getColorModeControls();
+
+  if (data.variant === 'horizontal') {
+    argTypes.fixedLabelWidth = {
+      name: 'fixed label width',
+      type: 'boolean',
+      description:
+        'Labels use a fixed width; when disabled, they take the width of the longest one',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: true },
+        category: 'Display',
+      },
+    };
+  }
 
   argTypes.term = {
     name: 'label',
@@ -80,6 +97,9 @@ const prepareData = (data, args) => {
   }
 
   data.visible_items = args.visibleItems;
+  if (args.fixedLabelWidth !== undefined) {
+    data.fixed_label_width = args.fixedLabelWidth;
+  }
 
   data.items.forEach((item) => {
     if (item.type === 'tag') {
@@ -119,7 +139,7 @@ Vertical.render = async (args) => {
 };
 Vertical.storyName = 'description';
 Vertical.args = getArgs(dataDescriptionListDefault);
-Vertical.argTypes = getArgTypes();
+Vertical.argTypes = getArgTypes(dataDescriptionListDefault);
 Vertical.parameters = {
   notes: {
     markdown: notes,
@@ -137,7 +157,7 @@ Horizontal.render = async (args) => {
 };
 Horizontal.storyName = 'description (horizontal)';
 Horizontal.args = getArgs(dataDescriptionListHorizontal);
-Horizontal.argTypes = getArgTypes();
+Horizontal.argTypes = getArgTypes(dataDescriptionListHorizontal);
 Horizontal.parameters = {
   notes: {
     markdown: notes,

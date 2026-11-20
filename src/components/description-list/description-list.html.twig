@@ -11,6 +11,7 @@
         ...
       ]
     - "variant" (string) (default: ''): global variant of the list (horizontal, vertical)
+    - "fixed_label_width" (boolean) (default: true): if set to false, labels will take the width of the longest one (in horizontal lists)
     - "visible_items": (integer) (default: 0) Number of visible items (0 to display all items)
     - "more_label": (string) (default: '') Label for the more button, if requested
     - "extra_classes" (string) (default: '')
@@ -26,6 +27,7 @@
 
 {% set _items = items|default([]) %}
 {% set _css_class = 'ecl-description-list' %}
+{% set _fixed_label_width = fixed_label_width ?? true %}
 {% set _visible_items = visible_items|default(0) %}
 {% set _variant = variant|default('') %}
 {% set _more_label = more_label|default('') %}
@@ -44,6 +46,10 @@
 
 {% if _variant is not empty %}
   {% set _css_class = _css_class ~ ' ' ~ _css_class ~ '--' ~ _variant %}
+{% endif %}
+
+{% if not _fixed_label_width and variant == 'horizontal' %}
+  {% set _css_class = _css_class ~ ' ecl-description-list--fluid-label' %}
 {% endif %}
 
 {% if extra_classes is defined and extra_classes is not empty %}
