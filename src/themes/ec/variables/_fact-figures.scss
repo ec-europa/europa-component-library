@@ -2,13 +2,15 @@
 @use '../index' as *;
 
 $fact-figures: (
-  background: var(--cm-surface-low-2),
+  background: var(--cm-surface-color-mode-low),
+  background-dark: var(--cm-surface-color-mode-high),
   border-radius: map.get($border-radius, 'xs'),
   padding-mobile: var(--s-5xl),
   padding-desktop: var(--s-5xl),
   margin-vertical: var(--s-5xl),
   margin-horizontal: var(--s-5xl),
   text-color: var(--cm-on-surface-brand),
+  text-color-dark: var(--cm-on-surface-inverted),
   value-font-mobile-m: var(--f-2xl),
   value-font-mobile-l: var(--f-5xl),
   value-font-desktop-m: var(--f-3xl),
@@ -31,10 +33,11 @@ $fact-figures: (
   view-all-padding: var(--s-s),
   icon-color: var(--cm-on-surface),
   icon-margin: var(--s-xs),
+  icon-wrapper-border: var(--c-a-25),
+  icon-highlighted-margin: var(--s-xl),
   source-spacing: var(--s-5xl),
   source-color: var(--cm-on-surface-brand),
   source-font: 'body-xs',
-  source-link-variant: 'brand',
   source-separator-color: var(--cm-on-surface-brand),
   source-separator-spacing: var(--s-3xs),
 );
