@@ -11,9 +11,11 @@ $theme: null !default;
 $card: null !default;
 
 .ecl-card {
+  --ecl-card-border-radius: #{map.get($card, 'border-radius')};
+
   background-color: map.get($card, 'background');
   border-bottom: map.get($card, 'border-bottom');
-  border-radius: map.get($card, 'border-radius');
+  border-radius: var(--ecl-card-border-radius);
   box-shadow: map.get($card, 'shadow');
   box-sizing: border-box;
   height: 100%;
