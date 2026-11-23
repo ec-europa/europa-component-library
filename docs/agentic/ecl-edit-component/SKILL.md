@@ -79,7 +79,7 @@ include pattern, demo data, overflow fix).
 
 ```bash
 pnpm lint                         # always — Stylelint/ESLint
-pnpm test:components -- <name>    # only if the Twig template or demo data changed
+pnpm test:components <name>       # only if the Twig template or demo data changed
 ```
 
 Snapshots capture rendered HTML, so SCSS and token-only changes cannot affect them.

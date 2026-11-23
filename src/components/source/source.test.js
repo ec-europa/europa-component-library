@@ -51,6 +51,28 @@ describe('Source', () => {
       return expect(render(withExtraClasses)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with a footer tag', () => {
+      expect.assertions(1);
+
+      return expect(
+        render({ ...data, tag: 'footer' }),
+      ).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with element extra class names', () => {
+      expect.assertions(1);
+
+      const withElementClasses = {
+        ...data,
+        label_extra_classes: 'parent__sources-label',
+        list_extra_classes: 'parent__sources-list',
+        item_extra_classes: 'parent__sources-item',
+        source_extra_classes: 'parent__source',
+      };
+
+      return expect(render(withElementClasses)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra attributes', () => {
       expect.assertions(1);
 

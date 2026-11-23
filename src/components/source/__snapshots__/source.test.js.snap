@@ -112,6 +112,62 @@ exports[`Source > Default > renders correctly inverted and branded 1`] = `
 </jest>
 `;
 
+exports[`Source > Default > renders correctly with a footer tag 1`] = `
+<jest>
+  <footer
+    class="ecl-source"
+  >
+    <span
+      class="ecl-source__label"
+    >
+      Sources:
+    </span>
+    <ul
+      class="ecl-source__list"
+    >
+      <li
+        class="ecl-source__item"
+      >
+        <a
+          class="ecl-link ecl-source__link"
+          href="/example"
+        >
+          Eurostat
+        </a>
+      </li>
+      <li
+        class="ecl-source__item"
+      >
+        <a
+          class="ecl-link ecl-link--icon ecl-source__link"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            DG CNECT
+          </span>
+           
+          <span
+            aria-hidden="false"
+            class="wt-icon-phosphor--arrow-square-out ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-phosphor--arrow-square-out"
+          />
+        </a>
+      </li>
+      <li
+        class="ecl-source__item"
+      >
+        <span
+          class="ecl-source__text"
+        >
+          European Commission
+        </span>
+      </li>
+    </ul>
+  </footer>
+</jest>
+`;
+
 exports[`Source > Default > renders correctly with a single source 1`] = `
 <jest>
   <div
@@ -128,6 +184,62 @@ exports[`Source > Default > renders correctly with a single source 1`] = `
     >
       Eurostat
     </a>
+  </div>
+</jest>
+`;
+
+exports[`Source > Default > renders correctly with element extra class names 1`] = `
+<jest>
+  <div
+    class="ecl-source"
+  >
+    <span
+      class="ecl-source__label parent__sources-label"
+    >
+      Sources:
+    </span>
+    <ul
+      class="ecl-source__list parent__sources-list"
+    >
+      <li
+        class="ecl-source__item parent__sources-item"
+      >
+        <a
+          class="ecl-link ecl-source__link parent__source"
+          href="/example"
+        >
+          Eurostat
+        </a>
+      </li>
+      <li
+        class="ecl-source__item parent__sources-item"
+      >
+        <a
+          class="ecl-link ecl-link--icon ecl-source__link parent__source"
+          href="/example"
+        >
+          <span
+            class="ecl-link__label"
+          >
+            DG CNECT
+          </span>
+           
+          <span
+            aria-hidden="false"
+            class="wt-icon-phosphor--arrow-square-out ecl-icon ecl-icon--xs ecl-link__icon ecl-icon-phosphor--arrow-square-out"
+          />
+        </a>
+      </li>
+      <li
+        class="ecl-source__item parent__sources-item"
+      >
+        <span
+          class="ecl-source__text parent__source"
+        >
+          European Commission
+        </span>
+      </li>
+    </ul>
   </div>
 </jest>
 `;
