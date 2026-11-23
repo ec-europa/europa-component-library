@@ -14,6 +14,7 @@ $page-summary: null !default;
   --max-w: none;
 
   background-color: map.get($page-summary, 'background');
+  border-radius: var(--ecl-border-radius, 0);
   border-inline-start: map.get($page-summary, 'border');
   display: flex;
   flex-direction: column;

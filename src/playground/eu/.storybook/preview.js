@@ -5,6 +5,7 @@ import isChromatic from 'chromatic/isChromatic';
 import { addons } from 'storybook/preview-api';
 import { STORY_RENDERED } from 'storybook/internal/core-events';
 import { allModes } from './modes';
+import { BORDER_RADIUS_CHANGED } from '@ecl/storybook-addon-border-radius';
 
 import './ECL';
 
@@ -14,6 +15,7 @@ import './ECL';
 let eclInitTimer = null;
 let eclAutoInitInstance = null;
 let direction = null;
+let borderRadius = null;
 function debouncedEclInit() {
   clearTimeout(eclInitTimer);
   eclInitTimer = setTimeout(() => {
@@ -30,7 +32,7 @@ function debouncedEclInit() {
     if (eclAutoInitInstance) {
       eclAutoInitInstance.destroy();
     }
-    eclAutoInitInstance = ECL.autoInit();
+    eclAutoInitInstance = ECL.autoInit({ borderRadius });
     // Load Webtools once per preview document. Its SPA-compatible icon
     // processing handles subsequent story changes without reloading the script.
     const LOAD_JS = 'https://webtools.europa.eu/load.js';
@@ -46,6 +48,14 @@ function debouncedEclInit() {
 // observe component DOM changes: those must not restart running components.
 const channel = addons.getChannel();
 channel.on(STORY_RENDERED, debouncedEclInit);
+channel.on(BORDER_RADIUS_CHANGED, (value) => {
+  const selectedBorderRadius = value || null;
+
+  if (borderRadius !== selectedBorderRadius) {
+    borderRadius = selectedBorderRadius;
+    debouncedEclInit();
+  }
+});
 
 global.Buffer = Buffer;
 

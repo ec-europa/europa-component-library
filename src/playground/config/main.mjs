@@ -37,6 +37,7 @@ export function createConfig(system, configDir) {
       require.resolve('@ecl/storybook-addon-notes/preset'),
       require.resolve('@ecl/storybook-addon-code/preset'),
       require.resolve('@ecl/storybook-addon-preview-width/preset'),
+      require.resolve('@ecl/storybook-addon-border-radius/preset'),
       packagePath('@storybook/addon-a11y'),
       require.resolve('@ecl/storybook-addon-system-switcher/preset'),
     ],
