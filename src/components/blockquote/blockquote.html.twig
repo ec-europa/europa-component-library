@@ -7,6 +7,13 @@
     - "author" (string) (default: '') The author of the quote
     - "lang" (string) (default: 'en') Language code for the citation text (ISO 639-1)
     - "picture" (associative array) (default: {}): Image for the blockquote, following ECL Picture structure
+    - "sources_label" (string) (default: '') Label displayed before the sources list
+    - "sources" (array) (default: []) Array of source references (ECL link objects or plain strings)
+      - "link" (object) ECL link object:
+        - "label" (string) (default: '') Link label
+        - "path" (string) (default: '') Link URL
+        or
+      - "name" (string) (default: '') Plain text source
     - "extra_classes" (string) (default: '') Extra classes (space separated)
     - "extra_attributes" (array) (default: []): format: [
         {
@@ -24,6 +31,8 @@
 {% set _citation = citation|default('') %}
 {% set _author = author|default('') %}
 {% set _picture = picture|default({}) %}
+{% set _sources_label = sources_label|default('') %}
+{% set _sources = sources|default([]) %}
 {% set _lang = lang|default('en') %}
 {% set _color_mode = color_mode|default('') %}
 
@@ -65,6 +74,14 @@
       <p class="ecl-blockquote__citation" lang="{{ _lang }}">{{ _citation }}</p>
       <footer class="ecl-blockquote__attribution">
         <span class="ecl-blockquote__author">{{ _author }}</span>
+        {% if _sources is not empty and _sources is iterable %}
+          {% include '@ecl/source/source.html.twig' with {
+            sources: _sources,
+            label: _sources_label,
+            branded: true,
+            extra_classes: 'ecl-blockquote__sources',
+          } only %}
+        {% endif %}
       </footer>
     </blockquote>
     
