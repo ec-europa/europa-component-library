@@ -2,8 +2,8 @@
 
 **Recommended versions of required software:**
 
-- Node.js = 22.12.0
-- pnpm >= 10.9.0
+- Node.js >= 22.13.0
+- pnpm >= 12.18.0
 
 We recommend you to use [Node Version Manager](https://github.com/creationix/nvm) and to run `nvm install` in the root followed by `nvm use` to get the right Node.js version, the `.nvmrc` file in the root of your project is selecting for you the latest available node lts release.
 
@@ -48,13 +48,13 @@ pnpm test:components
 Test a specific component:
 
 ```bash
-pnpm test:components -- button
+pnpm test:components button
 ```
 
 Update test snapshots:
 
 ```bash
-pnpm test:components -- button -u
+pnpm test:components button -u
 ```
 
 Component tests use Vitest. Review snapshot diffs before updating; omit `button` to

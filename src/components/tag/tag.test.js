@@ -35,6 +35,16 @@ describe('Tag', () => {
       return expect(render(optionsWithExternal)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with an icon', () => {
+      expect.assertions(1);
+
+      const optionsWithIcon = merge(dataLink, {
+        tag: { icon: { name: 'star', family: 'phosphor' } },
+      });
+
+      return expect(render(optionsWithIcon)).resolves.toMatchSnapshot();
+    });
+
     test('renders correctly with extra class names', () => {
       expect.assertions(1);
 
@@ -69,6 +79,16 @@ describe('Tag', () => {
     test('renders correctly', () => {
       expect.assertions(1);
       return expect(render(dataRemovable)).resolves.toMatchSnapshot();
+    });
+
+    test('renders correctly with an icon', () => {
+      expect.assertions(1);
+
+      const optionsWithIcon = merge(dataRemovable, {
+        tag: { icon: { name: 'star', family: 'phosphor' } },
+      });
+
+      return expect(render(optionsWithIcon)).resolves.toMatchSnapshot();
     });
 
     test('passes the accessibility tests', async () => {

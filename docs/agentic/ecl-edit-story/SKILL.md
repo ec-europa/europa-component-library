@@ -1,7 +1,19 @@
-# Skill: ECL Storybook stories and controls
+---
+name: ecl-edit-story
+description: Adds or changes Storybook stories and controls for ECL components ({name}.story.js) — the getArgs / getArgTypes / prepareData pattern, new story variants, toggles for optional content, conditional controls, EC color-mode and icon-picker controls. Use when the user asks to add, fix or tweak a story, a Storybook control/arg, or the Twig include example shown in the notes panel.
+---
+
+# ECL Storybook stories and controls
 
 ECL stories follow a specific three-function pattern. Understanding it is required before
 adding or modifying any story controls.
+
+Specialised controls have their own reference — read it only when the task needs it:
+
+- [reference/color-mode-control.md](reference/color-mode-control.md) — EC `color_mode`
+  select (shared helper, EU-safe)
+- [reference/icon-picker.md](reference/icon-picker.md) — Phosphor icon select with a
+  `'none'` option
 
 ## Before making any changes
 
@@ -130,6 +142,30 @@ const prepareData = (data, args) => {
 And update render calls from `prepareData(correctPaths(data), args)` to
 `prepareData(data, args)`.
 
+### Toggling an optional object
+
+Not every new parameter needs a control — if its usefulness is unclear, ask the user.
+When an optional object (image, icon, link…) does need one, expose a boolean toggle
+rather than the raw object:
+
+```js
+// getArgs
+show_image: true,
+
+// getArgTypes
+show_image: {
+  name: 'image',
+  type: { name: 'boolean' },
+  description: 'Toggle image visibility',
+  table: { type: { summary: 'boolean' }, category: 'Optional' },
+},
+
+// prepareData (on the clone)
+if (!args.show_image) {
+  delete clone.image;
+}
+```
+
 ## Conditional visibility with `if:`
 
 Controls can be shown/hidden based on another arg's value:
@@ -150,10 +186,9 @@ argTypes.picture_size = {
 
 ## After making changes
 
-**Do not run snapshot tests** after story-only changes. Vitest snapshots render the raw
-demo data directly — they are unaffected by `getArgs`, `getArgTypes`, or `prepareData`
-changes. Running them is wasted effort unless you also changed the Twig template or
-demo data.
+Run `pnpm lint`. Skip snapshot tests for story-only changes: Vitest renders the demo
+data directly, so `getArgs`, `getArgTypes` and `prepareData` cannot affect snapshots.
+Run them (see `ecl-test-component`) only if the Twig template or demo data also changed.
 
 ## Control types reference
 

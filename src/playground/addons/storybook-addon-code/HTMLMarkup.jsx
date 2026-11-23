@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { decode } from 'html-entities';
 import {
   SyntaxHighlighter,
-  Button,
   DocumentWrapper,
 } from 'storybook/internal/components';
 import { styled } from 'storybook/theming';
 import { html as beautify } from 'js-beautify';
-import prefillPen from './codepen';
 
 const PanelDocument = styled(DocumentWrapper)`
   box-sizing: border-box;
@@ -100,7 +97,6 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
     unformatted: [],
     inline: [],
   });
-  const unescapedRendered = decode(beautifiedRendered);
 
   // For original source HTML, also force block-level formatting for consistent output
   const beautifiedOriginal = originalMarkup
@@ -109,7 +105,6 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
         inline: [],
       })
     : '';
-  const unescapedOriginal = originalMarkup ? decode(beautifiedOriginal) : '';
 
   const currentCode =
     activeTab === 'source' ? beautifiedOriginal : beautifiedRendered;
@@ -119,32 +114,6 @@ function HTMLMarkup({ active, markup, originalMarkup }) {
     <PanelDocument>
       <TitleBar>
         <h1>HTML</h1>
-        <Button
-          type="button"
-          variant="tertiary"
-          onClick={() => {
-            const form = document.createElement('form');
-            const element1 = document.createElement('input');
-
-            form.method = 'POST';
-            form.action = 'https://codepen.io/pen/define';
-            form.target = '_blank';
-
-            element1.type = 'hidden';
-            element1.name = 'data';
-            element1.value = prefillPen(
-              activeTab === 'source' ? unescapedOriginal : unescapedRendered,
-            );
-
-            form.appendChild(element1);
-
-            document.body.appendChild(form);
-            form.submit();
-            form.remove();
-          }}
-        >
-          Open in CodePen
-        </Button>
       </TitleBar>
       {hasOriginal && (
         <TabBar>

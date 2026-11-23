@@ -19,14 +19,14 @@ pnpm start:eu         # Storybook for the EU system (port 9002)
 pnpm start:website    # Documentation website
 
 pnpm test:components              # run all component tests with Vitest
-pnpm test:components -- button    # test a single component
-pnpm test:components -- button -u # update snapshots for one component only
-pnpm test:components -- -u        # update all snapshots
+pnpm test:components button       # test a single component
+pnpm test:components button -u    # update snapshots for one component only
+pnpm test:components -u           # update all snapshots
 
 pnpm lint             # ESLint + Stylelint
-pnpm prettier:write   # auto-format
+pnpm pretty-write     # auto-format
 
-pnpm dist             # full build (presets + components + resources)
+pnpm dist             # full build (presets + storybook + website)
 pnpm --filter '@ecl/button' run dist  # build a single package
 ```
 
@@ -38,6 +38,9 @@ pnpm --filter '@ecl/button' run dist  # build a single package
 src/
   components/     ← 60+ components, each an @ecl/{name} npm package
   compositions/   ← higher-level markup patterns built from components
+  layout/         ← grid (@ecl/grid, incl. breakpoints mixin)
+  mixins/, utilities/ ← shared Sass mixins and utility classes
+  twig-templates/ ← aggregate package of all Twig templates
   themes/         ← design tokens for EC and EU (maps/, variables/)
   presets/        ← bundled distributions (ec, eu, reset, rtl)
   playground/     ← Storybook instances (ec/, eu/)
@@ -98,13 +101,14 @@ See [`docs/ec-eu-systems.md`](./docs/ec-eu-systems.md) for full details.
 
 Step-by-step guides for common AI tasks live in [`docs/agentic/`](./docs/agentic/README.md):
 
-| Task                                | Skill file                                                                       |
-| ----------------------------------- | -------------------------------------------------------------------------------- |
-| Create a new component              | [`docs/agentic/ecl-new-component.md`](./docs/agentic/ecl-new-component.md)       |
-| Modify an existing component        | [`docs/agentic/ecl-modify-component.md`](./docs/agentic/ecl-modify-component.md) |
-| Run tests / fix snapshots / fix axe | [`docs/agentic/ecl-testing.md`](./docs/agentic/ecl-testing.md)                   |
-| Add or update Storybook stories     | [`docs/agentic/ecl-story-controls.md`](./docs/agentic/ecl-story-controls.md)     |
-| Update EC color tokens              | [`docs/agentic/ecl-update-token.md`](./docs/agentic/ecl-update-token.md)         |
+| Task                                | Skill file                                                                                     |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Create a new component              | [`docs/agentic/ecl-create-component/SKILL.md`](./docs/agentic/ecl-create-component/SKILL.md)   |
+| Modify an existing component        | [`docs/agentic/ecl-edit-component/SKILL.md`](./docs/agentic/ecl-edit-component/SKILL.md)       |
+| Run tests / fix snapshots / fix axe | [`docs/agentic/ecl-test-component/SKILL.md`](./docs/agentic/ecl-test-component/SKILL.md)       |
+| Add or update Storybook stories     | [`docs/agentic/ecl-edit-story/SKILL.md`](./docs/agentic/ecl-edit-story/SKILL.md)               |
+| Update EC color tokens              | [`docs/agentic/ecl-edit-color-tokens/SKILL.md`](./docs/agentic/ecl-edit-color-tokens/SKILL.md) |
+| Review a colleague's pull request   | [`docs/agentic/ecl-review-pr/SKILL.md`](./docs/agentic/ecl-review-pr/SKILL.md)                 |
 
 ---
 

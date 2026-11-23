@@ -128,6 +128,27 @@ describe('Button', () => {
       return expect(render(buttonData)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with a standalone indicator', () => {
+      expect.assertions(1);
+
+      const buttonDataStandalone = {
+        ...dataButtonSecondary,
+        style: 'neutral',
+        icon_position: 'before',
+        icon: {
+          name: 'corner-arrow-up',
+          size: 'fluid',
+        },
+        indicator: {
+          position: 'standalone',
+          value: 10,
+          sr_label: 'new items',
+        },
+      };
+
+      return expect(render(buttonDataStandalone)).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, buttonData)),
