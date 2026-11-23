@@ -1,4 +1,9 @@
-# Skill: ECL component testing
+---
+name: ecl-test-component
+description: Runs and fixes ECL component tests (Vitest snapshot + jest-axe accessibility) and owns the rules for when to run them and when snapshots may be updated. Use when tests fail, a snapshot diff needs reviewing or updating, an axe violation must be fixed, or new test cases are being added to a {name}.test.js file.
+---
+
+# ECL component testing
 
 ECL component tests run with Vitest. Each component has two kinds of assertions:
 **snapshot tests** (HTML output) and **accessibility tests** (axe-core).
@@ -15,6 +20,16 @@ pnpm test:components -- -u           # update all snapshots (use sparingly)
 Vitest configuration is in `vitest.config.mjs`; it retains the existing
 `__snapshots__` locations and Jest-compatible snapshot serialization.
 
+## When to run them
+
+Snapshots capture rendered HTML from the Twig template and demo data — nothing else.
+
+| What changed                                 | Run component tests? |
+| -------------------------------------------- | -------------------- |
+| `{name}.html.twig`, `demo/*.js`, `*.test.js` | Yes                  |
+| `{name}.story.js` only                       | No                   |
+| SCSS, theme variables or color tokens only   | No                   |
+
 ## Snapshot failures
 
 A snapshot failure means the rendered HTML changed. This can be:
@@ -23,7 +38,9 @@ A snapshot failure means the rendered HTML changed. This can be:
   `__snapshots__/{name}.test.js.snap`, confirm it reflects your change, then run with `-u`.
 - **Unexpected** — a side-effect from another change. Investigate before updating.
 
-Read the snapshot diff before running `-u`. Updating without reading is an error.
+Read the snapshot diff before running `-u`: an update is a permanent record that the new
+HTML is correct, so updating blindly can hide a regression. Always scope `-u` to the
+component you changed.
 
 ## Accessibility (axe) failures
 

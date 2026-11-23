@@ -466,6 +466,239 @@ exports[`Tabs > Default > renders correctly with extra attributes 1`] = `
 </jest>
 `;
 
+exports[`Tabs > Default > renders correctly with extra attributes on items 1`] = `
+<jest>
+  <div
+    class="ecl-tabs"
+    data-ecl-auto-init="Tabs"
+    data-ecl-tabs="true"
+  >
+    <div
+      class="ecl-tabs__container"
+    >
+      <div
+        class="ecl-tabs__list"
+        role="tablist"
+      >
+        <div
+          class="ecl-tabs__item"
+        >
+          <a
+            aria-selected="false"
+            class="ecl-link ecl-tabs__link"
+            data-extra-item-attr=""
+            href="/example"
+            id="tabs-1"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item"
+        >
+          <a
+            aria-selected="false"
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+            id="tabs-2"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item"
+        >
+          <a
+            aria-selected="false"
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+            id="tabs-3"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item"
+        >
+          <a
+            aria-selected="true"
+            class="ecl-link ecl-tabs__link ecl-tabs__link--active"
+            href="/example"
+            id="tabs-4"
+            role="tab"
+            tabindex="0"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item"
+        >
+          <a
+            aria-selected="false"
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+            id="tabs-5"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item"
+        >
+          <a
+            aria-selected="false"
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+            id="tabs-6"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item"
+        >
+          <a
+            aria-selected="false"
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+            id="tabs-7"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item"
+        >
+          <a
+            aria-selected="false"
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+            id="tabs-8"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item"
+        >
+          <a
+            aria-selected="false"
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+            id="tabs-9"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item"
+        >
+          <a
+            aria-selected="false"
+            class="ecl-link ecl-tabs__link"
+            href="/example"
+            id="tabs-10"
+            role="tab"
+            tabindex="-1"
+          >
+            Tab label
+          </a>
+        </div>
+        <div
+          class="ecl-tabs__item ecl-tabs__item--more"
+        />
+      </div>
+      <button
+        class="ecl-button ecl-button--tertiary ecl-tabs__toggle"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Show %d more items
+          </span>
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--caret-down ecl-icon ecl-icon--fluid ecl-button__icon ecl-icon-phosphor--caret-down"
+            data-ecl-icon=""
+          />
+        </span>
+      </button>
+    </div>
+    <div
+      class="ecl-slider-pager ecl-tabs__controls"
+    >
+      <!-- Prev button -->
+      <button
+        class="ecl-button ecl-button--tertiary ecl-slider-pager__prev ecl-tabs__prev ecl-button--icon-only"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Previous
+          </span>
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--caret-left ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-left"
+            data-ecl-icon=""
+          />
+        </span>
+      </button>
+      <!-- Next button -->
+      <button
+        class="ecl-button ecl-button--tertiary ecl-slider-pager__next ecl-tabs__next ecl-button--icon-only"
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="ecl-button__container"
+        >
+          <span
+            class="ecl-button__label"
+            data-ecl-label="true"
+          >
+            Next
+          </span>
+          <span
+            aria-hidden="true"
+            class="wt-icon-phosphor--caret-right ecl-icon ecl-icon--m ecl-button__icon ecl-icon-phosphor--caret-right"
+            data-ecl-icon=""
+          />
+        </span>
+      </button>
+    </div>
+  </div>
+</jest>
+`;
+
 exports[`Tabs > Default > renders correctly with extra class name on items 1`] = `
 <jest>
   <div
