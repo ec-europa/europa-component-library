@@ -55,12 +55,8 @@ $source: null !default;
   .ecl-icon {
     margin-inline-start: map.get($source, 'separator-spacing');
   }
-}
 
-.ecl-source--inverted {
-  color: map.get($source, 'color-inverted');
-
-  .ecl-source__item:not(:last-child)::after {
-    color: map.get($source, 'color-inverted');
+  &.ecl-link--inverted {
+    color: #{map.get($source, 'color')};
   }
 }
