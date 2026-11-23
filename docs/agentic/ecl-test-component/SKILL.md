@@ -11,11 +11,14 @@ ECL component tests run with Vitest. Each component has two kinds of assertions:
 ## Running tests
 
 ```bash
-pnpm test:components                 # all components — slow, avoid unless needed
-pnpm test:components -- button       # single component by folder name
-pnpm test:components -- button -u    # update snapshots for one component only
-pnpm test:components -- -u           # update all snapshots (use sparingly)
+pnpm test:components              # all components — slow, avoid unless needed
+pnpm test:components button       # single component by folder name
+pnpm test:components button -u    # update snapshots for one component only
+pnpm test:components -u           # update all snapshots (use sparingly)
 ```
+
+Put names first and `-u` last. Don't add `--`: vitest then ignores the name filter
+and runs the whole suite. `-u <name>` fails as well, because `-u` takes the name as its value.
 
 Vitest configuration is in `vitest.config.mjs`; it retains the existing
 `__snapshots__` locations and Jest-compatible snapshot serialization.
