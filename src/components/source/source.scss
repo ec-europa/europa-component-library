@@ -1,0 +1,68 @@
+/**
+ * Source
+ * @define source
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$source: null !default;
+
+.ecl-source {
+  color: map.get($source, 'color');
+
+  @include mixins.responsive-font(map.get($source, 'font'));
+}
+
+.ecl-source__label {
+  display: inline-block;
+  margin-inline-end: map.get($source, 'label-spacing');
+}
+
+.ecl-source__list {
+  display: inline;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ecl-source__item {
+  display: inline;
+
+  &:not(:last-child)::after {
+    color: map.get($source, 'separator-color');
+    content: '\00a0| ';
+    display: inline;
+    padding-inline: map.get($source, 'separator-spacing');
+    position: relative;
+    top: 2px;
+  }
+}
+
+.ecl-source__text {
+  display: inline;
+}
+
+.ecl-source__link {
+  &:has(svg) {
+    white-space: nowrap;
+  }
+
+  .ecl-link__label {
+    white-space: normal;
+  }
+
+  .ecl-icon {
+    margin-inline-start: map.get($source, 'separator-spacing');
+  }
+}
+
+.ecl-source--inverted {
+  color: map.get($source, 'color-inverted');
+
+  .ecl-source__item:not(:last-child)::after {
+    color: map.get($source, 'color-inverted');
+  }
+}

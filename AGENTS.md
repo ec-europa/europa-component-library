@@ -19,9 +19,9 @@ pnpm start:eu         # Storybook for the EU system (port 9002)
 pnpm start:website    # Documentation website
 
 pnpm test:components              # run all component tests with Vitest
-pnpm test:components -- button    # test a single component
-pnpm test:components -- button -u # update snapshots for one component only
-pnpm test:components -- -u        # update all snapshots
+pnpm test:components button       # test a single component
+pnpm test:components button -u    # update snapshots for one component only
+pnpm test:components -u           # update all snapshots
 
 pnpm lint             # ESLint + Stylelint
 pnpm pretty-write     # auto-format
