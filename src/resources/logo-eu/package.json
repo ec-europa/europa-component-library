@@ -19,7 +19,7 @@
     "dist": "run-s dist:*",
     "dist:lists": "node ./scripts/build-lists.js",
     "dist:script": "node scripts/esm-export.js",
-    "prepublish": "npm run dist"
+    "prepublish": "pnpm run dist"
   },
   "repository": {
     "type": "git",

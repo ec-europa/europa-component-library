@@ -65,6 +65,17 @@ describe('Tabs', () => {
       return expect(render(withExtraClassesOnItems)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly with extra attributes on items', () => {
+      expect.assertions(1);
+
+      const withExtraAttrsOnItems = JSON.parse(JSON.stringify(demoData));
+      withExtraAttrsOnItems.items[0].extra_attributes = [
+        { name: 'data-extra-item-attr' },
+      ];
+
+      return expect(render(withExtraAttrsOnItems)).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, demoData, true)),

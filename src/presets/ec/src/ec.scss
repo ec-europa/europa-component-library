@@ -185,6 +185,10 @@
   $theme: theme.$theme,
   $expandable: var.$expandable
 );
+@use '@ecl/source/source' with (
+  $theme: theme.$theme,
+  $source: var.$source
+);
 @use '@ecl/fact-figures/fact-figures' with (
   $theme: theme.$theme,
   $fact-figures: var.$fact-figures

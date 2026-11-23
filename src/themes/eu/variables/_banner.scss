@@ -96,24 +96,24 @@ $banner: (
   overlay: var(--c-d-60),
   // DEPRECATED
   background: (
-      'plain-background': linear-gradient(
-          to right,
-          var(--c-p-140) 0%,
-          var(--c-p) 100%
-        ),
-      'text-box-mobile': map.get($color, 'white'),
-      'text-box-desktop': rgb(255, 255, 255, 0.9),
-      'image-overlay': linear-gradient(
-          to right,
-          var(--c-p-140) 0%,
-          var(--c-p) 100%
-        ),
-      'text-highlight': linear-gradient(
-          to right,
-          var(--c-p-140) 0%,
-          var(--c-p) 100%
-        ),
-    ),
+    'plain-background': linear-gradient(
+        to right,
+        var(--c-p-140) 0%,
+        var(--c-p) 100%
+      ),
+    'text-box-mobile': map.get($color, 'white'),
+    'text-box-desktop': rgb(255, 255, 255, 0.9),
+    'image-overlay': linear-gradient(
+        to right,
+        var(--c-p-140) 0%,
+        var(--c-p) 100%
+      ),
+    'text-highlight': linear-gradient(
+        to right,
+        var(--c-p-140) 0%,
+        var(--c-p) 100%
+      ),
+  ),
 );
 $banner-print: (
   container-padding-bottom: map.get($spacing-print, '3xl'),
