@@ -14,6 +14,7 @@ $file: null !default;
   color: map.get($file, 'color');
   container-name: ecl-file;
   container-type: inline-size;
+  width: 100%;
 
   @include mixins.responsive-font(map.get($file, 'font'));
 }
