@@ -4,7 +4,6 @@
  */
 
 @use 'sass:map';
-@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -62,52 +61,10 @@ $fact-figures-print: null !default;
 }
 
 .ecl-fact-figures__sources {
-  color: map.get($fact-figures, 'source-color');
-  gap: var(--s-xs);
   margin-block-start: map.get($fact-figures, 'source-spacing');
-
-  @include mixins.responsive-font(map.get($fact-figures, 'source-font'));
 
   .ecl-fact-figures__item & {
     margin-block-start: map.get($theme, 'spacing-print', 'm');
-  }
-}
-
-.ecl-fact-figures__sources-label {
-  margin-inline-end: map.get($theme, 'spacing-print', 'xs');
-}
-
-.ecl-fact-figures__sources-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: inline;
-}
-
-.ecl-fact-figures__source {
-  &:has(svg) {
-    white-space: nowrap;
-  }
-
-  .ecl-link__label {
-    white-space: normal;
-  }
-
-  .ecl-icon {
-    margin-inline-start: map.get($fact-figures, 'source-separator-spacing');
-  }
-}
-
-.ecl-fact-figures__sources-item {
-  display: inline;
-
-  &:not(:last-child)::after {
-    color: map.get($fact-figures, 'source-separator-color');
-    content: '\00a0| ';
-    display: inline;
-    padding-inline: map.get($fact-figures, 'source-separator-spacing');
-    position: relative;
-    top: 2px;
   }
 }
 

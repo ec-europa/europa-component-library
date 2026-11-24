@@ -1,7 +1,19 @@
-# Skill: ECL Storybook stories and controls
+---
+name: ecl-edit-story
+description: Adds or changes Storybook stories and controls for ECL components ({name}.story.js) — the getArgs / getArgTypes / prepareData pattern, new story variants, toggles for optional content, conditional controls, EC color-mode and icon-picker controls. Use when the user asks to add, fix or tweak a story, a Storybook control/arg, or the Twig include example shown in the notes panel.
+---
+
+# ECL Storybook stories and controls
 
 ECL stories follow a specific three-function pattern. Understanding it is required before
 adding or modifying any story controls.
+
+Specialised controls have their own reference — read it only when the task needs it:
+
+- [reference/color-mode-control.md](reference/color-mode-control.md) — EC `color_mode`
+  select (shared helper, EU-safe)
+- [reference/icon-picker.md](reference/icon-picker.md) — Phosphor icon select with a
+  `'none'` option
 
 ## Before making any changes
 
@@ -130,84 +142,29 @@ const prepareData = (data, args) => {
 And update render calls from `prepareData(correctPaths(data), args)` to
 `prepareData(data, args)`.
 
-## Color mode control (EC only)
+### Toggling an optional object
 
-Components that support EC color modes accept a `color_mode` Twig param and add
-`ecl-color-mode--{mode}` to the root class. Never hand-write the option list — use the
-shared helper from `@ecl/story-utils`, which returns `{}` on EU so the control
-disappears automatically:
-
-```js
-import { getColorModeControls, correctPaths } from '@ecl/story-utils';
-import getSystem from '@ecl/builder/utils/getSystem';
-
-// getArgs — gate on the system, or EU gets an arg with no matching argType
-if (getSystem() === 'ec') {
-  args.color_mode = 'default';
-}
-
-// getArgTypes — spread first so it sits at the top of the panel
-const argTypes = { ...getColorModeControls() };
-// or show it conditionally, same shape as `if:` below
-const argTypes = { ...getColorModeControls({ arg: 'has_background' }) };
-```
-
-No `prepareData` handling is needed: the control's `mapping` turns `'default'` into `''`
-and `'green dark'` into `'green-dark'`, and the value reaches the template through
-`Object.assign(clone, args)`. If the template doesn't read `color_mode` yet, add it
-there (see `blockquote.html.twig`).
-
-## Icon picker control
-
-Icons are Phosphor. Build the select from the generated list rather than hardcoding
-names, and add a `'none'` option so the icon can be removed:
+Not every new parameter needs a control — if its usefulness is unclear, ask the user.
+When an optional object (image, icon, link…) does need one, expose a boolean toggle
+rather than the raw object:
 
 ```js
-import iconsAll from '@ecl/resources-icons/list-phosphor.json';
-
-// Copy, don't `unshift` — the JSON module is shared across stories
-const iconOptions = ['none', ...iconsAll];
-
 // getArgs
-args.icon_name = 'none';
-args.icon_title = '';
+show_image: true,
 
 // getArgTypes
-argTypes.icon_name = {
-  name: 'icon name',
-  type: { name: 'select' },
-  description: 'Name of the icon',
-  options: iconOptions,
-  table: { type: { summary: 'string' }, category: 'Icon' },
-};
-argTypes.icon_title = {
-  name: 'icon title',
-  type: 'string',
-  description: 'Textual information for the icon, mostly for screen readers',
-  table: { type: { summary: 'string' }, category: 'Icon' },
-  if: { arg: 'icon_name', neq: 'none' },
-};
+show_image: {
+  name: 'image',
+  type: { name: 'boolean' },
+  description: 'Toggle image visibility',
+  table: { type: { summary: 'boolean' }, category: 'Optional' },
+},
 
-// prepareData — build the icon object, or delete it so the template falls back
-if (args.icon_name && args.icon_name !== 'none') {
-  clone.icon = {
-    family: 'phosphor',
-    name: args.icon_name,
-    title: args.icon_title,
-  };
-} else {
-  delete clone.icon;
+// prepareData (on the clone)
+if (!args.show_image) {
+  delete clone.image;
 }
 ```
-
-- Hide every icon-related control (`icon_title`, size, position…) with
-  `if: { arg: 'icon_name', neq: 'none' }`.
-- Keep the icon object's other fields (`size`, `transform`) in `prepareData` rather than
-  as controls unless the user asks for them.
-- To also offer flags, add a `mapping` that resolves each option to
-  `{ name, family }` (`family: 'flags'` for entries from `list-flag-eu-member.json`) —
-  see `tag.story.js`. Social/brand icons use `family: 'networks'`; never offer those
-  through a Phosphor picker.
 
 ## Conditional visibility with `if:`
 
@@ -229,10 +186,9 @@ argTypes.picture_size = {
 
 ## After making changes
 
-**Do not run snapshot tests** after story-only changes. Vitest snapshots render the raw
-demo data directly — they are unaffected by `getArgs`, `getArgTypes`, or `prepareData`
-changes. Running them is wasted effort unless you also changed the Twig template or
-demo data.
+Run `pnpm lint`. Skip snapshot tests for story-only changes: Vitest renders the demo
+data directly, so `getArgs`, `getArgTypes` and `prepareData` cannot affect snapshots.
+Run them (see `ecl-test-component`) only if the Twig template or demo data also changed.
 
 ## Control types reference
 
