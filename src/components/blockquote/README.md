@@ -13,6 +13,13 @@ npm install --save @ecl/blockquote
 - **"author"** (string) (default: '') The author of the quote
 - **"lang"** (string) (default: 'en') Language code for the citation text (ISO 639-1)
 - **"picture"** (associative array) (default: {}): Image for the blockquote, following ECL Picture structure
+- **"sources_label"** (string) (default: '') Label displayed before the sources list
+- **"sources"** (array) (default: []) Array of source references (ECL link objects or plain strings)
+  - "link" (object) ECL link object:
+    - "label" (string) (default: '') Link label
+    - "path" (string) (default: '') Link URL
+      or
+  - "name" (string) (default: '') Plain text source
 - **"extra_classes"** (string) (default: '') Extra classes (space separated)
 - **"extra_attributes"** (array) (default: []) Extra attributes
   - "name" (string) Attribute name, eg. 'data-test'
@@ -26,6 +33,11 @@ npm install --save @ecl/blockquote
   citation: 'Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do.', 
   author: 'Mark Twain',
   lang: 'el',
+  sources_label: 'Sources:',
+  sources: [
+    { link: { label: 'Eurostat', path: exampleLink } },
+    { name: 'European Commission' },
+  ],
   picture: {
     img: {
       src: 'https://inno-ecl.s3.amazonaws.com/media/examples/example-image.jpg',
