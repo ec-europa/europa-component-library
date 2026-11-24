@@ -6022,11 +6022,11 @@ packages:
     resolution: {integrity: sha512-BfD9eLrz3A/DG58aSgfgZYmIR6V9Yw96QVN/frtu2bEH7ctSTk2TDvHU12un3JsDPBTqTNkqkIkucjxljpOFqQ==}
     engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0}
 
-  '@simple-git/args-pathspec@1.0.2':
-    resolution: {integrity: sha512-nEFVejViHUoL8wU8GTcwqrvqfUG40S5ts6S4fr1u1Ki5CklXlRDYThPVA/qurTmCYFGnaX3XpVUmICLHdvhLaA==}
+  '@simple-git/args-pathspec@1.0.4':
+    resolution: {integrity: sha512-EtMX6XjRWSastG2SdkmSQByPtJ9dx/NIjnHbpQPCYt62j4RmSx5rgLTGpw0YCjF5h191gZOmBfheOT23cRSFdw==}
 
-  '@simple-git/argv-parser@1.0.3':
-    resolution: {integrity: sha512-NMKv9sJcSN2VvnPT9Ja7eKfGy8Q8mMFLwPTCcuZMtv3+mYcLIZflg31S/tp2XCCyiY7YAx6cgBHQ0fwA2fWHpQ==}
+  '@simple-git/argv-parser@3.0.0':
+    resolution: {integrity: sha512-MhLm6/9J7PiVZghJnaJG4tOc+rTotsSINJkjbUqZA7lYmYklOXdk+d0UZ8Pm8WFcMuxafx3oSUIYYYnPY92GTQ==}
 
   '@simple-libs/child-process-utils@2.0.0':
     resolution: {integrity: sha512-dvNoRKLijXnD0XoJAz94pbNuB5GQgDr55UhpSPhffDkTT0Cmcqh9jSCOtwfT2d4H6MI9E7c4SgtMuJXZ6F3c6A==}
@@ -11524,8 +11524,8 @@ packages:
     resolution: {integrity: sha512-hJqJfoG/e4qFQaauQL00c6J6FrHLBGKtkFvW3JbTSIEFOhLrSjdSM/gWd/yUOfYo/gsERehTXGC1VZWX+9X4Dg==}
     engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0}
 
-  simple-git@3.35.2:
-    resolution: {integrity: sha512-ZMjl06lzTm1EScxEGuM6+mEX+NQd14h/B3x0vWU+YOXAMF8sicyi1K4cjTfj5is+35ChJEHDl1EjypzYFWH2FA==}
+  simple-git@4.1.0:
+    resolution: {integrity: sha512-FZJESy4Vxahk4eOadmRsWF5TjhCrfpDP563j8jAMbMEi/phIHPDgzN/tDkRIZ2GyQdLKEeXMPXqA8hhWjAdQZA==}
 
   sirv@3.0.2:
     resolution: {integrity: sha512-2wcC/oGxHis/BoHkkPwldgiPSYcpZK3JU28WoMVv55yHJgcZ8rlXvuG9iZggz+sU1d4bRgIGASwyWqjxu3FM0g==}
@@ -15131,11 +15131,11 @@ snapshots:
       '@sigstore/core': 4.0.1
       '@sigstore/protobuf-specs': 0.5.1
 
-  '@simple-git/args-pathspec@1.0.2': {}
+  '@simple-git/args-pathspec@1.0.4': {}
 
-  '@simple-git/argv-parser@1.0.3':
+  '@simple-git/argv-parser@3.0.0':
     dependencies:
-      '@simple-git/args-pathspec': 1.0.2
+      '@simple-git/args-pathspec': 1.0.4
 
   '@simple-libs/child-process-utils@2.0.0':
     dependencies:
@@ -20119,7 +20119,7 @@ snapshots:
       dotenv: 10.0.0
       express: 4.22.1(supports-color@10.2.2)
       morgan: 1.10.1(supports-color@10.2.2)
-      simple-git: 3.35.2(supports-color@10.2.2)
+      simple-git: 4.1.0(supports-color@10.2.2)
       what-the-diff: 0.6.0
       winston: 3.19.0
     transitivePeerDependencies:
@@ -21972,12 +21972,12 @@ snapshots:
       - kerberos
       - supports-color
 
-  simple-git@3.35.2(supports-color@10.2.2):
+  simple-git@4.1.0(supports-color@10.2.2):
     dependencies:
       '@kwsites/file-exists': 1.1.1(supports-color@10.2.2)
       '@kwsites/promise-deferred': 1.1.1
-      '@simple-git/args-pathspec': 1.0.2
-      '@simple-git/argv-parser': 1.0.3
+      '@simple-git/args-pathspec': 1.0.4
+      '@simple-git/argv-parser': 3.0.0
       debug: 4.4.3(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
