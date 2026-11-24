@@ -220,7 +220,7 @@
         {%- if _item.video_length is not empty -%}
           <span class="ecl-gallery__length">
             {%- if _sr_video_length is not empty -%}
-              <span class="ecl-u-sr-only">{{- _sr_video_length -}}</span>
+              <span class="ecl-gallery__length-label">{{- _sr_video_length -}}</span>
             {%- endif -%}
             {{- _item.video_length -}}
           </span>

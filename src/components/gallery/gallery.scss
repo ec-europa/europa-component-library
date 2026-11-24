@@ -224,6 +224,10 @@ $_description-height-desktop: 108px;
   @include mixins.responsive-font(map.get($gallery, 'item-meta-font'));
 }
 
+.ecl-gallery__length-label {
+  @include screen-reader.sr-only;
+}
+
 .ecl-gallery__date {
   margin-inline-start: auto;
 }
