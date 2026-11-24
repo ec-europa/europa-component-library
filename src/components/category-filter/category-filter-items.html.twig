@@ -43,7 +43,7 @@
       {% set _has_children = true %}
     {% endif %}
     {% if item.current %}
-      {% set _item_attributes = _item_attributes|merge([{ name: 'aria-current', value: 'true' }]) %}
+      {% set _item_attributes = _item_attributes|merge([{ name: 'data-current', value: 'true' }]) %}
     {% endif %}
     {% if _item_attributes is not empty %}
       {% for attr in _item_attributes %}

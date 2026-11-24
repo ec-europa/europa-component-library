@@ -58,7 +58,6 @@ export class CategoryFilter {
     this.collapseAllButton = null;
 
     // Bind `this` for use in callbacks
-    this.handleClickItem = this.handleClickItem.bind(this);
     this.handleToggleDetails = this.handleToggleDetails.bind(this);
     this.expandParents = this.expandParents.bind(this);
     this.handleClickExpandAll = this.handleClickExpandAll.bind(this);
@@ -88,16 +87,11 @@ export class CategoryFilter {
 
     // Expand the needed items if there is a current item set
     const currentItem = this.items.find((item) =>
-      item.getAttribute('aria-current'),
+      item.getAttribute('data-current'),
     );
     this.expandParents(currentItem);
 
     // Bind click events
-    if (this.attachClickListener && this.items) {
-      this.items.forEach((item) => {
-        item.addEventListener('click', this.handleClickItem);
-      });
-    }
     if (this.attachClickListener && this.expandAllButton) {
       this.expandAllButton.addEventListener('click', this.handleClickExpandAll);
     }
@@ -117,11 +111,6 @@ export class CategoryFilter {
    * Destroy component.
    */
   destroy() {
-    if (this.attachClickListener && this.items) {
-      this.items.forEach((item) => {
-        item.removeEventListener('click', this.handleClickItem, false);
-      });
-    }
     if (this.details) {
       this.details.forEach((details) => {
         details.removeEventListener('toggle', this.handleToggleDetails);
@@ -159,22 +148,6 @@ export class CategoryFilter {
   }
 
   /**
-   * Mark the clicked item as current. Opening/closing is handled natively by details.
-   * @param {Event} e
-   */
-  handleClickItem(e) {
-    // Get item even if we clicked on the icon
-    const treeItem = e.target.closest(this.itemSelector);
-    this.items.forEach((item) => {
-      if (item === treeItem) {
-        item.setAttribute('aria-current', true);
-      } else {
-        item.removeAttribute('aria-current');
-      }
-    });
-  }
-
-  /**
    * Toggle the open class on the list item wrapping the details.
    * @deprecated The `ecl-category-filter__list-item--open` class will be removed in ECL v6, use the details `open` attribute instead
    * @param {Event} e
@@ -192,9 +165,6 @@ export class CategoryFilter {
    */
   setAllExpandedState(expanded) {
     if (!this.details) return;
-    this.items.forEach((item) => {
-      item.removeAttribute('aria-current');
-    });
     this.details.forEach((details) => {
       details.open = expanded;
     });

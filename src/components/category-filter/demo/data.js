@@ -7,9 +7,17 @@ export default {
   id: 'unique-id',
   expand_all: {
     label: 'Expand all',
+    icon: {
+      name: 'plus-square',
+      family: 'phosphor',
+    },
   },
   collapse_all: {
     label: 'Collapse all',
+    icon: {
+      name: 'minus-square',
+      family: 'phosphor',
+    },
   },
   items: [
     { label: 'Item 1', path: exampleLink },
