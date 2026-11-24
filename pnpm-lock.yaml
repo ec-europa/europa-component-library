@@ -12622,20 +12622,8 @@ packages:
     resolution: {integrity: sha512-dYwyZredl67GyLLIHJnRM3h2PcOmN5SkcgC7eM5DPDEOEl6dLFqVrMg3F1Ea32usj4VSVZtd2H4MtKTNOf6nPg==}
     engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0}
 
-  ws@8.20.0:
-    resolution: {integrity: sha512-sAt8BhgNbzCtgGbt2OxmpuryO63ZoDk/sqaB/znQm94T4fCEsy/yV+7CdC1kJhOU9lboAEU7R3kquuycDoibVA==}
-    engines: {node: '>=10.0.0'}
-    peerDependencies:
-      bufferutil: ^4.0.1
-      utf-8-validate: '>=5.0.2'
-    peerDependenciesMeta:
-      bufferutil:
-        optional: true
-      utf-8-validate:
-        optional: true
-
-  ws@8.21.3:
-    resolution: {integrity: sha512-201TZ/kPWxoPr/OKWjquZR1SWKXcvxdH+e1xrx89b3YbmzLMFCLfnaG1HFIgWzJOEWZ7MvpK++odZufgYR50Rw==}
+  ws@8.23.0:
+    resolution: {integrity: sha512-wCkmX8QMOrKjgO8HW2WyDbTSGeqkocxgDzS9iR79rEAexty6/2qzilx3Ag8Tqf9ykop3irLKle0MtVn5qjVnoQ==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -17200,7 +17188,7 @@ snapshots:
       '@socket.io/component-emitter': 3.1.2
       debug: 4.4.3(supports-color@10.2.2)
       engine.io-parser: 5.2.3
-      ws: 8.21.3
+      ws: 8.23.0
       xmlhttprequest-ssl: 2.1.2
     transitivePeerDependencies:
       - bufferutil
@@ -17220,7 +17208,7 @@ snapshots:
       cors: 2.8.6
       debug: 4.4.3(supports-color@10.2.2)
       engine.io-parser: 5.2.3
-      ws: 8.20.0
+      ws: 8.23.0
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -18953,7 +18941,7 @@ snapshots:
       whatwg-encoding: 3.1.1
       whatwg-mimetype: 4.0.0
       whatwg-url: 14.2.0
-      ws: 8.21.3
+      ws: 8.23.0
       xml-name-validator: 5.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -18981,7 +18969,7 @@ snapshots:
       whatwg-encoding: 3.1.1
       whatwg-mimetype: 4.0.0
       whatwg-url: 14.2.0
-      ws: 8.21.3
+      ws: 8.23.0
       xml-name-validator: 5.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -21098,7 +21086,7 @@ snapshots:
       devtools-protocol: 0.0.1495869
       typed-query-selector: 2.12.1
       webdriver-bidi-protocol: 0.2.11
-      ws: 8.21.3
+      ws: 8.23.0
     transitivePeerDependencies:
       - bare-abort-controller
       - bare-buffer
@@ -21923,7 +21911,7 @@ snapshots:
   socket.io-adapter@2.5.6(supports-color@10.2.2):
     dependencies:
       debug: 4.4.3(supports-color@10.2.2)
-      ws: 8.20.0
+      ws: 8.23.0
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -22082,7 +22070,7 @@ snapshots:
       recast: 0.23.19
       semver: 7.8.5
       use-sync-external-store: 1.6.0(react@19.3.1)
-      ws: 8.21.3
+      ws: 8.23.0
     optionalDependencies:
       '@types/react': 19.2.14
       prettier: 3.10.1
@@ -23208,9 +23196,7 @@ snapshots:
     dependencies:
       signal-exit: 4.1.0
 
-  ws@8.20.0: {}
-
-  ws@8.21.3: {}
+  ws@8.23.0: {}
 
   wsl-utils@0.1.0:
     dependencies:
