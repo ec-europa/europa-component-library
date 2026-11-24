@@ -59,9 +59,9 @@
       {%- if _has_children -%}
         <details
           class="ecl-category-filter__details"
-          {% if _name is not empty and _level == 1 %}
+          {%- if _name is not empty and _level == 1 -%}
             name="{{ _name }}"
-          {% endif %}
+          {%- endif -%}
         >
           <summary
             class="{{ _item_class }}"
