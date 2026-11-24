@@ -58,6 +58,7 @@ export class CategoryFilter {
     this.collapseAllButton = null;
 
     // Bind `this` for use in callbacks
+    this.handleClickItem = this.handleClickItem.bind(this);
     this.handleToggleDetails = this.handleToggleDetails.bind(this);
     this.expandParents = this.expandParents.bind(this);
     this.handleClickExpandAll = this.handleClickExpandAll.bind(this);
@@ -92,6 +93,11 @@ export class CategoryFilter {
     this.expandParents(currentItem);
 
     // Bind click events
+    if (this.attachClickListener && this.items) {
+      this.items.forEach((item) => {
+        item.addEventListener('click', this.handleClickItem);
+      });
+    }
     if (this.attachClickListener && this.expandAllButton) {
       this.expandAllButton.addEventListener('click', this.handleClickExpandAll);
     }
@@ -111,6 +117,11 @@ export class CategoryFilter {
    * Destroy component.
    */
   destroy() {
+    if (this.attachClickListener && this.items) {
+      this.items.forEach((item) => {
+        item.removeEventListener('click', this.handleClickItem, false);
+      });
+    }
     if (this.details) {
       this.details.forEach((details) => {
         details.removeEventListener('toggle', this.handleToggleDetails);
@@ -145,6 +156,17 @@ export class CategoryFilter {
       details.open = true;
       details = details.parentElement.closest(this.detailsSelector);
     }
+  }
+
+  /*
+   * Specific click actions. Opening/closing is handled natively by details.
+   * @param {Event} e
+   */
+  handleClickItem(e) {
+    // Get item even if we clicked on the icon
+    const treeItem = e.target.closest(this.itemSelector);
+
+    return treeItem;
   }
 
   /**
