@@ -22,6 +22,7 @@ $blockquote: (
     font-weight: map.get($font-weight, 'semi-bold'),
     color: var(--cm-on-surface-brand),
   ),
+  sources-margin: var(--s-s),
   image: (
     background: var(--cm-surface-lowest),
     margin-mobile: var(--s-m),
@@ -33,5 +34,6 @@ $blockquote-print: (
   quote-font: map.get($font-print, 'l'),
   author-margin: map.get($spacing-print, 'm'),
   author-font: map.get($font-print, 'l'),
+  sources-margin: map.get($spacing-print, 's'),
   image-margin: map.get($spacing-print, 'xl'),
 );
