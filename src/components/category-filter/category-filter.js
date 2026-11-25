@@ -4,6 +4,7 @@ import { queryAll } from '@ecl/dom-utils';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.itemSelector Selector for the items
+ * @param {String} options.firstLevelItemSelector Selector for thefirst level items
  * @param {String} options.detailsSelector Selector for the details elements wrapping the parent items
  * @param {String} options.expandAllSelector Selector for the expand all button
  * @param {String} options.collapseAllSelector Selector for the collapse all button
@@ -29,6 +30,7 @@ export class CategoryFilter {
     element,
     {
       itemSelector = '.ecl-category-filter__item',
+      firstLevelItemSelector = '.ecl-category-filter__item--level-1',
       detailsSelector = '.ecl-category-filter__details',
       expandAllSelector = '[data-ecl-category-filter-expand-all]',
       collapseAllSelector = '[data-ecl-category-filter-collapse-all]',
@@ -46,6 +48,7 @@ export class CategoryFilter {
 
     // Options
     this.itemSelector = itemSelector;
+    this.firstLevelItemSelector = firstLevelItemSelector;
     this.detailsSelector = detailsSelector;
     this.expandAllSelector = expandAllSelector;
     this.collapseAllSelector = collapseAllSelector;
@@ -76,10 +79,7 @@ export class CategoryFilter {
     ECL.components = ECL.components || new Map();
     // Query elements
     this.items = queryAll(this.itemSelector, this.element);
-    this.firstLevelItems = queryAll(
-      '.ecl-category-filter__item--level-1',
-      this.element,
-    );
+    this.firstLevelItems = queryAll(this.firstLevelItemSelector, this.element);
     this.details = queryAll(this.detailsSelector, this.element);
     this.expandAllButton = this.element.querySelector(this.expandAllSelector);
     this.collapseAllButton = this.element.querySelector(
