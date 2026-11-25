@@ -76,6 +76,10 @@ export class CategoryFilter {
     ECL.components = ECL.components || new Map();
     // Query elements
     this.items = queryAll(this.itemSelector, this.element);
+    this.firstLevelItems = queryAll(
+      '.ecl-category-filter__item--level-1',
+      this.element,
+    );
     this.details = queryAll(this.detailsSelector, this.element);
     this.expandAllButton = this.element.querySelector(this.expandAllSelector);
     this.collapseAllButton = this.element.querySelector(
@@ -167,15 +171,12 @@ export class CategoryFilter {
     // Get item even if we clicked on the icon
     const treeItem = e.target.closest(this.itemSelector);
     // Check if the clicked item is in the first level and has an expanded details.
-    const isExpanded =
-      treeItem.classList.contains('ecl-category-filter__item--level-1') &&
-      treeItem.closest(this.detailsSelector)?.open;
+    const treeItemFirstLevel = this.firstLevelItems.includes(treeItem);
+    const treeItemExpanded = treeItem.closest(this.detailsSelector)?.open;
 
     this.items.forEach((item) => {
       const itemDetails = item.closest(this.detailsSelector);
-      const firstLevel = item.classList.contains(
-        'ecl-category-filter__item--level-1',
-      );
+      const firstLevel = this.firstLevelItems.includes(item);
 
       if (item === treeItem) {
         item.setAttribute('aria-current', true);
@@ -185,8 +186,9 @@ export class CategoryFilter {
 
       // Restore the name when expanding an item if it has been previously removed.
       if (
+        treeItemFirstLevel &&
         firstLevel &&
-        !isExpanded &&
+        !treeItemExpanded &&
         this.detailsName &&
         itemDetails &&
         !itemDetails?.name
