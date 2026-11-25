@@ -70,7 +70,7 @@ git status --porcelain            # must be empty — otherwise stop and tell th
 git switch review/pr-<n>
 pnpm install                      # only if any package.json or the lockfile changed
 pnpm lint
-pnpm test:components -- <name>    # for each component whose Twig or demo data changed
+pnpm test:components <name>    # for each component whose Twig or demo data changed
 git switch -                      # always return to the user's branch
 ```
 

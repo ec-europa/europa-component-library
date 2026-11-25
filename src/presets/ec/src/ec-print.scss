@@ -134,6 +134,10 @@
 @use '@ecl/expandable/expandable-print' with (
   $theme: theme.$theme
 );
+@use '@ecl/source/source-print' with (
+  $theme: theme.$theme,
+  $source: var.$source
+);
 @use '@ecl/fact-figures/fact-figures-print' with (
   $theme: theme.$theme,
   $fact-figures: var.$fact-figures,

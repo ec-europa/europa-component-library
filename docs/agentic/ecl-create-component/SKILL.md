@@ -115,7 +115,7 @@ EC and EU, a card in each component index, and four CMS config entries.
 
 ```bash
 pnpm install                     # links the new workspace package
-pnpm test:components -- <name>   # new snapshots are written on first run
+pnpm test:components <name>   # new snapshots are written on first run
 pnpm lint                        # Stylelint flags e.g. empty rule blocks
 ```
 

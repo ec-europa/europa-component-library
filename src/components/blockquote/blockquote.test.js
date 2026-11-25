@@ -43,6 +43,14 @@ describe('Blockquote', () => {
       return expect(render(optionsWithExtraClasses)).resolves.toMatchSnapshot();
     });
 
+    test('renders correctly without sources', () => {
+      expect.assertions(1);
+
+      const withoutSources = { ...data, sources: [] };
+
+      return expect(render(withoutSources)).resolves.toMatchSnapshot();
+    });
+
     test('passes the accessibility tests', async () => {
       expect(
         await axe(await renderTwigFileAsHtml(template, data, true)),
