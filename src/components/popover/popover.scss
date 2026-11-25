@@ -56,14 +56,13 @@ $_arrow-size: 1rem;
   max-height: 11rem;
   max-width: 288px;
   overflow-y: auto;
-  scrollbar-gutter: stable;
 }
 
 .ecl-popover__content {
   background-color: var(--cm-surface-inverted, #fff);
   color: var(--cm-on-surface-brand, var(--c-d));
   line-height: map.get($popover, 'content-line-height');
-  padding-inline-end: map.get($popover, 'padding-mobile');
+  padding-inline-end: map.get($popover, 'content-padding-end');
   text-align: start;
   width: auto;
 
@@ -74,10 +73,6 @@ $_arrow-size: 1rem;
   position: absolute;
   top: map.get($popover, 'close-button-spacing');
   inset-inline-end: map.get($popover, 'close-button-spacing');
-
-  + .ecl-popover__content {
-    padding-inline-end: map.get($popover, 'content-padding-end');
-  }
 }
 
 .ecl-popover--bottom .ecl-popover__container,
