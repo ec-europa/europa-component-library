@@ -5,6 +5,7 @@
 
 @use 'sass:map';
 @use '@ecl/grid/mixins/breakpoints';
+@use '@ecl/mixins-typography/mixins';
 
 // Exposed variables
 $theme: null !default;
@@ -22,7 +23,8 @@ $_arrow-size: 1rem;
 .ecl-popover__container {
   background-color: var(--cm-surface-inverted, #fff);
   box-shadow: map.get($popover, 'shadow');
-  min-height: 7rem;
+  padding: map.get($popover, 'padding-mobile') 0
+    map.get($popover, 'padding-mobile') map.get($popover, 'padding-mobile');
   position: absolute;
   transform: translateX(-50%);
   z-index: map.get($theme, 'z-index', 'dropdown');
@@ -51,25 +53,27 @@ $_arrow-size: 1rem;
 }
 
 .ecl-popover__scrollable {
+  max-height: 11rem;
   max-width: 288px;
   overflow-y: auto;
-  padding: map.get($popover, 'padding');
+  scrollbar-gutter: stable;
 }
 
 .ecl-popover__content {
   background-color: var(--cm-surface-inverted, #fff);
   color: var(--cm-on-surface-brand, var(--c-d));
-  font: var(--f-m);
   line-height: map.get($popover, 'content-line-height');
-  max-height: 11rem;
+  padding-inline-end: map.get($popover, 'padding-mobile');
   text-align: start;
   width: auto;
+
+  @include mixins.responsive-font(map.get($popover, 'font'));
 }
 
 .ecl-popover__close {
   position: absolute;
-  top: map.get($popover, 'close-button-top');
-  inset-inline-end: map.get($popover, 'close-button-right');
+  top: map.get($popover, 'close-button-spacing');
+  inset-inline-end: map.get($popover, 'close-button-spacing');
 
   + .ecl-popover__content {
     padding-inline-end: map.get($popover, 'content-padding-end');
@@ -161,22 +165,29 @@ $_arrow-size: 1rem;
 }
 
 @include breakpoints.up('s') {
+  .ecl-popover__container {
+    padding: map.get($popover, 'padding-tablet') 0
+      map.get($popover, 'padding-tablet') map.get($popover, 'padding-tablet');
+  }
+
   .ecl-popover__scrollable {
     max-width: 400px;
   }
 }
 
 @include breakpoints.up('m') {
-  .ecl-popover__content {
-    max-height: 264px;
-  }
-
   .ecl-popover__scrollable {
+    max-height: 264px;
     max-width: 522px;
   }
 }
 
 @include breakpoints.up('l') {
+  .ecl-popover__container {
+    padding: map.get($popover, 'padding-desktop') 0
+      map.get($popover, 'padding-desktop') map.get($popover, 'padding-desktop');
+  }
+
   .ecl-popover__scrollable {
     max-width: 648px;
   }
