@@ -4,6 +4,7 @@ import { queryAll } from '@ecl/dom-utils';
  * @param {HTMLElement} element DOM element for component instantiation and scope
  * @param {Object} options
  * @param {String} options.itemSelector Selector for the items
+ * @param {String} options.firstLevelItemSelector Selector for thefirst level items
  * @param {String} options.detailsSelector Selector for the details elements wrapping the parent items
  * @param {String} options.expandAllSelector Selector for the expand all button
  * @param {String} options.collapseAllSelector Selector for the collapse all button
@@ -29,6 +30,7 @@ export class CategoryFilter {
     element,
     {
       itemSelector = '.ecl-category-filter__item',
+      firstLevelItemSelector = '.ecl-category-filter__item--level-1',
       detailsSelector = '.ecl-category-filter__details',
       expandAllSelector = '[data-ecl-category-filter-expand-all]',
       collapseAllSelector = '[data-ecl-category-filter-collapse-all]',
@@ -46,6 +48,7 @@ export class CategoryFilter {
 
     // Options
     this.itemSelector = itemSelector;
+    this.firstLevelItemSelector = firstLevelItemSelector;
     this.detailsSelector = detailsSelector;
     this.expandAllSelector = expandAllSelector;
     this.collapseAllSelector = collapseAllSelector;
@@ -56,6 +59,7 @@ export class CategoryFilter {
     this.details = null;
     this.expandAllButton = null;
     this.collapseAllButton = null;
+    this.detailsName = '';
 
     // Bind `this` for use in callbacks
     this.handleClickItem = this.handleClickItem.bind(this);
@@ -75,6 +79,7 @@ export class CategoryFilter {
     ECL.components = ECL.components || new Map();
     // Query elements
     this.items = queryAll(this.itemSelector, this.element);
+    this.firstLevelItems = queryAll(this.firstLevelItemSelector, this.element);
     this.details = queryAll(this.detailsSelector, this.element);
     this.expandAllButton = this.element.querySelector(this.expandAllSelector);
     this.collapseAllButton = this.element.querySelector(
@@ -88,7 +93,7 @@ export class CategoryFilter {
 
     // Expand the needed items if there is a current item set
     const currentItem = this.items.find((item) =>
-      item.getAttribute('aria-current'),
+      item.getAttribute('data-current'),
     );
     this.expandParents(currentItem);
 
@@ -158,18 +163,38 @@ export class CategoryFilter {
     }
   }
 
-  /**
-   * Mark the clicked item as current. Opening/closing is handled natively by details.
+  /*
+   * Specific click actions. Opening/closing is handled natively by details.
    * @param {Event} e
    */
   handleClickItem(e) {
     // Get item even if we clicked on the icon
     const treeItem = e.target.closest(this.itemSelector);
+
+    // Check if the clicked item is in the first level and has an expanded details.
+    const treeItemFirstLevel = this.firstLevelItems.includes(treeItem);
+    const treeItemExpanded = treeItem.closest(this.detailsSelector)?.open;
+
     this.items.forEach((item) => {
+      const itemDetails = item.closest(this.detailsSelector);
+      const firstLevel = this.firstLevelItems.includes(item);
+
       if (item === treeItem) {
         item.setAttribute('aria-current', true);
       } else {
         item.removeAttribute('aria-current');
+      }
+
+      // Restore the name when expanding an item if it has been previously removed.
+      if (
+        treeItemFirstLevel &&
+        firstLevel &&
+        !treeItemExpanded &&
+        this.detailsName &&
+        itemDetails &&
+        !itemDetails?.name
+      ) {
+        itemDetails.name = this.detailsName;
       }
     });
   }
@@ -192,10 +217,11 @@ export class CategoryFilter {
    */
   setAllExpandedState(expanded) {
     if (!this.details) return;
-    this.items.forEach((item) => {
-      item.removeAttribute('aria-current');
-    });
     this.details.forEach((details) => {
+      if (expanded && details.name) {
+        this.detailsName = details.name;
+        details.removeAttribute('name');
+      }
       details.open = expanded;
     });
   }

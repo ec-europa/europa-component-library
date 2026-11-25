@@ -63,6 +63,7 @@ $outline-width: 2px;
 
 .ecl-select__container {
   background-color: var(--cm-surface-inverted, #fff);
+  border-radius: map.get($select, 'border-radius');
   display: flex;
   flex-direction: column;
   max-width: 100%;

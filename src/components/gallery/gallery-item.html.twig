@@ -17,6 +17,7 @@
     - "share_path" (optional) (string) (default: '')
     - "publication_date" (string) (default: '')
     - "video_length" (string) (default: '')
+  - "sr_video_length" (string) (default: ''): hidden label to indicate that it is the duration; for screen readers
   - "sr_video_label" (string) (default: ''): additional label for the video items; for screen readers
   - "sr_video_player" (string) (default: ''): additional label for the video player; for screen readers
   - "picture_zoom" (bool) (default: false): Should the thumbnail pictures be animated?
@@ -42,6 +43,7 @@
 }) %}
 {% set _picture = item.picture|default({}) %}
 {% set _thumbnail = item.thumbnail|default({}) %}
+{% set _sr_video_length = sr_video_length|default('') %}
 {% set _sr_video_label = sr_video_label|default('') %}
 {% set _sr_video_player = sr_video_player|default('') %}
 {% set _picture_zoom = picture_zoom|default(false) %}
@@ -217,6 +219,9 @@
         <div class="ecl-gallery__item-meta">
         {%- if _item.video_length is not empty -%}
           <span class="ecl-gallery__length">
+            {%- if _sr_video_length is not empty -%}
+              <span class="ecl-gallery__length-label">{{- _sr_video_length -}}</span>
+            {%- endif -%}
             {{- _item.video_length -}}
           </span>
         {%- endif -%}
