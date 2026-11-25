@@ -1,0 +1,25 @@
+/**
+ * Form wrapper print
+ * @define form-wrapper
+ */
+
+@use 'sass:map';
+
+// Exposed variables
+$form-wrapper: null !default;
+
+.ecl-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($form-wrapper, 'row-gap');
+}
+
+.ecl-form-wrapper__row {
+  display: grid;
+  gap: map.get($form-wrapper, 'row-gap');
+  grid-template-columns: 1fr;
+}
+
+.ecl-form-wrapper__actions {
+  display: none;
+}

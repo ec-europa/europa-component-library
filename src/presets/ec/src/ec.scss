@@ -23,6 +23,11 @@
   $layout-wrapper: var.$layout-wrapper,
   $typography: var.$typography
 );
+@use '@ecl/form-wrapper/form-wrapper' with (
+  $theme: theme.$theme,
+  $form-wrapper: var.$form-wrapper,
+  $typography: var.$typography
+);
 
 // Slider pager
 @use '@ecl/slider/slider-pager' with (

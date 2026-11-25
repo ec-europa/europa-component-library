@@ -1650,6 +1650,22 @@ importers:
         specifier: 5.4.0
         version: link:../grid
 
+  src/layout/form-wrapper:
+    dependencies:
+      '@ecl/button':
+        specifier: 5.4.0
+        version: link:../../components/button
+      '@ecl/form-group':
+        specifier: 5.4.0
+        version: link:../../components/form-group
+    devDependencies:
+      '@ecl/grid':
+        specifier: 5.4.0
+        version: link:../grid
+      '@ecl/mixins-typography':
+        specifier: 5.4.0
+        version: link:../../mixins/typography
+
   src/layout/grid: {}
 
   src/layout/layout-wrapper:
@@ -2269,6 +2285,9 @@ importers:
       '@ecl/form-group':
         specifier: 5.4.0
         version: link:../../components/form-group
+      '@ecl/form-wrapper':
+        specifier: 5.4.0
+        version: link:../../layout/form-wrapper
       '@ecl/gallery':
         specifier: 5.4.0
         version: link:../../components/gallery
@@ -2582,6 +2601,9 @@ importers:
       '@ecl/form-group':
         specifier: 5.4.0
         version: link:../../components/form-group
+      '@ecl/form-wrapper':
+        specifier: 5.4.0
+        version: link:../../layout/form-wrapper
       '@ecl/gallery':
         specifier: 5.4.0
         version: link:../../components/gallery
@@ -3044,6 +3066,9 @@ importers:
       '@ecl/form-group':
         specifier: 5.4.0
         version: link:../components/form-group
+      '@ecl/form-wrapper':
+        specifier: 5.4.0
+        version: link:../layout/form-wrapper
       '@ecl/gallery':
         specifier: 5.4.0
         version: link:../components/gallery

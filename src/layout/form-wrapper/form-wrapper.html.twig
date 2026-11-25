@@ -1,0 +1,115 @@
+{% import _self as form_wrapper %}
+{% apply spaceless %}
+
+{#
+  Parameters:
+  - "tag" (string) (default: 'form'): Wrapper element; 'form' or 'div' (when the form element is rendered elsewhere)
+  - "id" (string) (default: ''): Id of the wrapper, also used to link the title
+  - "title" (object) (default: {}): Title of the form wrapper. Structure:
+    - "level" (int) (default: 2): Heading level, up to h4
+    - "label" (string) (default: ''): Title content
+  - "description" (string) (default: ''): Description of the form wrapper
+  - "rows" (array) (default: []): Rows of form elements. Structure:
+    - "items" (array) (default: []): Up to 3 items per row. Each item can be either:
+      - a string (rendered as-is)
+      - an object with a "form_group" key, following ECL Form group structure
+  - "actions" (array) (default: []): Buttons displayed below the rows, following ECL Button structure
+  - "extra_classes" (string) (default: '')
+  - "extra_attributes" (array) (default: []): format: [
+      {
+        "name" (string) (default: ''),
+        "value" (optional) (string)
+      },
+      ...
+    ],
+#}
+
+{# Internal properties #}
+
+{% set _tag = tag|default('form') == 'div' ? 'div' : 'form' %}
+{% set _id = id|default('') %}
+{% set _title = title|default({})|merge({
+  level: title.level|default(2),
+  label: title.label|default('')
+}) %}
+{% set _description = description|default('') %}
+{% set _rows = rows|default([]) %}
+{% set _actions = actions|default([]) %}
+{% set _css_class = 'ecl-form-wrapper' %}
+{% set _extra_attributes = '' %}
+
+{# Internal logic - Process properties #}
+
+{% if extra_classes is defined and extra_classes is not empty %}
+  {% set _css_class = _css_class ~ ' ' ~ extra_classes %}
+{% endif %}
+
+{% if _id is not empty and _title.label is not empty %}
+  {% set _extra_attributes = ' aria-labelledby="' ~ (_id ~ '-title')|e('html_attr') ~ '"' %}
+{% endif %}
+
+{% if extra_attributes is defined and extra_attributes is not empty and extra_attributes is iterable %}
+  {% for attr in extra_attributes %}
+    {% if attr.value is defined %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') ~ '="' ~ attr.value|e('html_attr') ~ '"' %}
+    {% else %}
+      {% set _extra_attributes = _extra_attributes ~ ' ' ~ attr.name|e('html_attr') %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% macro render_item(item) %}{% apply spaceless %}
+  {%- if item.form_group is defined -%}
+    {%- include '@ecl/form-group/form-group.html.twig' with item.form_group only -%}
+  {%- else -%}
+    {{- item -}}
+  {%- endif -%}
+{% endapply %}{% endmacro %}
+
+{# Print the result #}
+
+{% if _rows is not empty %}
+<{{ _tag }}
+  class="{{ _css_class }}"
+  {%- if _id is not empty %} id="{{ _id }}"{% endif %}
+  {{- _extra_attributes|raw -}}
+>
+  {%- if _title.label is not empty or _description is not empty -%}
+    <div class="ecl-form-wrapper__info">
+      {%- if _title.label is not empty -%}
+        <h{{ _title.level }} class="ecl-form-wrapper__title"
+          {%- if _id is not empty %} id="{{ _id }}-title"{% endif -%}
+        >
+          {{- _title.label -}}
+        </h{{ _title.level }}>
+      {%- endif -%}
+      {%- if _description is not empty -%}
+        <div class="ecl-form-wrapper__description">{{- _description -}}</div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  {%- for row in _rows -%}
+    {%- set _items = row.items|default([]) -%}
+    {%- if _items is not empty -%}
+      <div class="ecl-form-wrapper__row ecl-form-wrapper__row--col-{{ min(_items|length, 3) }}">
+        {%- for item in _items -%}
+          <div class="ecl-form-wrapper__item">
+            {{- form_wrapper.render_item(item) -}}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if _actions is not empty -%}
+    <div class="ecl-form-wrapper__actions">
+      {%- for action in _actions -%}
+        {% include '@ecl/button/button.html.twig' with action only %}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</{{ _tag }}>
+{% endif %}
+
+{% endapply %}
