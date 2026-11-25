@@ -93,7 +93,7 @@ export class CategoryFilter {
 
     // Expand the needed items if there is a current item set
     const currentItem = this.items.find((item) =>
-      item.getAttribute('aria-current'),
+      item.getAttribute('data-current'),
     );
     this.expandParents(currentItem);
 
@@ -163,13 +163,14 @@ export class CategoryFilter {
     }
   }
 
-  /**
-   * Mark the clicked item as current. Opening/closing is handled natively by details.
+  /*
+   * Specific click actions. Opening/closing is handled natively by details.
    * @param {Event} e
    */
   handleClickItem(e) {
     // Get item even if we clicked on the icon
     const treeItem = e.target.closest(this.itemSelector);
+
     // Check if the clicked item is in the first level and has an expanded details.
     const treeItemFirstLevel = this.firstLevelItems.includes(treeItem);
     const treeItemExpanded = treeItem.closest(this.detailsSelector)?.open;
@@ -216,10 +217,6 @@ export class CategoryFilter {
    */
   setAllExpandedState(expanded) {
     if (!this.details) return;
-    this.items.forEach((item) => {
-      item.removeAttribute('aria-current');
-    });
-    // If a name is set and we are expanding all the items remove the name
     this.details.forEach((details) => {
       if (expanded && details.name) {
         this.detailsName = details.name;
