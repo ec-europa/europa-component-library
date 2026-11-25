@@ -112,6 +112,10 @@ $blockquote: null !default;
   );
 }
 
+.ecl-blockquote__sources {
+  margin-top: map.get($blockquote, 'sources-margin');
+}
+
 .ecl-blockquote__image,
 %ecl-blockquote__image {
   aspect-ratio: 1/1;
