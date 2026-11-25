@@ -40,6 +40,7 @@ npm install --save @ecl/gallery
   - "video_length" (string) (default: '')
 - **"visible_items"** (integer) (default: 8) Number of visible items in an expandable gallery
 - **"expandable"** (boolean) (default: true) collapsible/expandable gallery
+- **"sr_video_length"** (string) (default: ''): hidden label to indicate that it is the duration; for screen readers
 - **"sr_gallery_label"** (string) (default: ''): additional label for the gallery, providing instruction; for screen readers
 - **"sr_video_label"** (string) (default: ''): additional label for the video items; for screen readers
 - **"sr_video_player"** (string) (default: ''): additional label for the video player; for screen readers
@@ -72,6 +73,7 @@ npm install --save @ecl/gallery
   counter_label: 'Media files in this gallery' , 
   visible_items: 6,
   disable_overlay: false,
+  sr_video_length: 'Duration',
   sr_video_label: 'Video',
   sr_video_player: 'Video player',
   items: [ 
