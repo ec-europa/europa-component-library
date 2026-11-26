@@ -59,7 +59,6 @@ export default {
             icon: {
               name: 'envelope-simple',
               family: 'phosphor',
-              style: 'inverted',
             },
           },
         },
