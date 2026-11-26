@@ -5,6 +5,43 @@ title: What's new
 
 ECL v5 contains changes focused on improving the visual identity of the EC and EU components. Detailed release information is available on [Github](https://github.com/ec-europa/europa-component-library/releases).
 
+
+## 5.5.0 (2026-11-26)
+
+#### :rocket: New Feature
+
+* [#4786](https://github.com/ec-europa/europa-component-library/pull/4786) feat(blockquote): add sources - FRONT-5549
+* [#4741](https://github.com/ec-europa/europa-component-library/pull/4741) feat(highlighted-search): new form and display options - FRONT-5521
+* [#4777](https://github.com/ec-europa/europa-component-library/pull/4777) feat(quiz): add micro title - FRONT-5544
+* [#4757](https://github.com/ec-europa/europa-component-library/pull/4757) feat(category-filter): add control buttons - FRONT-5535
+* [#4735](https://github.com/ec-europa/europa-component-library/pull/4735) feat(gallery): new variant "portrait" - FRONT-5512
+
+#### :bug: Bug Fix
+
+* [#4807](https://github.com/ec-europa/europa-component-library/pull/4807) fix(footer): Fixing data for envelop icon in EU - FRONT-5564
+* [#4804](https://github.com/ec-europa/europa-component-library/pull/4804) fix(button): Fixing color for tertiary button in EC - FRONT-5560
+* [#4805](https://github.com/ec-europa/europa-component-library/pull/4805) feat(tag): update tag background - FRONT-5561
+* [#4772](https://github.com/ec-europa/europa-component-library/pull/4772) fix(select): Removing offending css reset for the margin of the select multiple - FRONT-5547
+* [#4773](https://github.com/ec-europa/europa-component-library/pull/4773) fix(default-css): Removing container inline from ecl wrapper - FRONT-5548
+* [#4771](https://github.com/ec-europa/europa-component-library/pull/4771) fix: Removing container from default css, reverting description list to media queries - FRONT-5548
+* [#4761](https://github.com/ec-europa/europa-component-library/pull/4761) fix(mega-menu): Link and sublink icon size - FRONT-5540
+* [#4755](https://github.com/ec-europa/europa-component-library/pull/4755) fix(multi-select): handle empty options - FRONT-5531
+* [#4753](https://github.com/ec-europa/europa-component-library/pull/4753) fix(tabs):  Fixing the undefined pagerElement passed to the slider pager script  - FRONT-5533
+
+#### :nail_care: Enhancement
+
+* [#4745](https://github.com/ec-europa/europa-component-library/pull/4745) feat(description-list): Adding option to display hidden items in a popover - FRONT-5518
+* [#4806](https://github.com/ec-europa/europa-component-library/pull/4806) feat(tooltip, spotlight): update font on EU - FRONT-5557
+* [#4788](https://github.com/ec-europa/europa-component-library/pull/4788) feat(category-filter): button icon, remove bold - FRONT-5559
+* [#4776](https://github.com/ec-europa/europa-component-library/pull/4776) feat(category-filter): Enabling use of name and controls together - FRONT-5545
+* [#4787](https://github.com/ec-europa/europa-component-library/pull/4787) feat(gallery): add hidden duration label - FRONT-5558
+* [#4774](https://github.com/ec-europa/europa-component-library/pull/4774) feat(container-queries): fix potential display issues - FRONT-5552
+* [#4780](https://github.com/ec-europa/europa-component-library/pull/4780) feat(tabs): Allowing extra attributes for the items - FRONT-5550
+* [#4756](https://github.com/ec-europa/europa-component-library/pull/4756) feat(fact-figures): Adding highlighted variant - FRONT-5534
+* [#4737](https://github.com/ec-europa/europa-component-library/pull/4737) feat(tag): optional icon - FRONT-5520
+* [#4725](https://github.com/ec-europa/europa-component-library/pull/4725) feat(indicator):  component improvements - FRONT-5495
+* [#4760](https://github.com/ec-europa/europa-component-library/pull/4760) feat(highlighted-search): remove unneeded aria-labelledby - FRONT-5514
+
 ## 5.4.0 (2026-10-22)
 
 #### :bug: Bug Fix

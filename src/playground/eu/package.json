@@ -3,7 +3,7 @@
   "name": "@ecl/twig-eu-storybook",
   "author": "European Commission",
   "license": "EUPL-1.2",
-  "version": "5.4.0",
+  "version": "5.5.0",
   "description": "Storybook EU Twig",
   "scripts": {
     "build": "STORYBOOK_SYSTEM=EU storybook build -c .storybook -o build",
@@ -11,10 +11,15 @@
     "start": "STORYBOOK_SYSTEM=EU node start.js"
   },
   "devDependencies": {
-    "@storybook/addon-docs": "10.6.8",
     "@duetds/date-picker": "1.4.0",
-    "@ecl/storybook-addon-styles": "5.4.0",
+    "@ecl/storybook-addon-code": "workspace:*",
+    "@ecl/storybook-addon-notes": "workspace:*",
+    "@ecl/storybook-addon-preview-width": "workspace:*",
+    "@ecl/storybook-addon-styles": "5.5.0",
+    "@ecl/storybook-addon-system-switcher": "workspace:*",
+    "@ecl/storybook-config": "workspace:*",
     "@iframe-resizer/child": "5.5.9",
+    "@storybook/addon-docs": "10.6.8",
     "browser-update": "3.3.63",
     "buffer": "6.0.3",
     "core-js": "3.51.0",
@@ -22,11 +27,6 @@
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "storybook": "10.6.8",
-    "@ecl/storybook-config": "workspace:*",
-    "@ecl/storybook-addon-notes": "workspace:*",
-    "@ecl/storybook-addon-code": "workspace:*",
-    "@ecl/storybook-addon-preview-width": "workspace:*",
-    "@ecl/storybook-addon-system-switcher": "workspace:*",
     "vite-plugin-node-polyfills": "0.28.0"
   }
 }
