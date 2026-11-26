@@ -5,7 +5,7 @@
 $theme: null !default;
 $typography: null !default;
 
-@mixin responsive-font-emit($tier, $important: false) {
+@mixin responsive-font-emit($tier, $important: false, $font-weight: null) {
   @if meta.type-of($tier) == 'map' {
     $size: map.get($tier, 'size');
     $lh: map.get($tier, 'line-height');
@@ -39,6 +39,11 @@ $typography: null !default;
       font: $tier !important;
     } @else {
       font: $tier;
+    }
+
+    // The font shorthand resets font-weight, re-apply it
+    @if $font-weight {
+      font-weight: $font-weight;
     }
   }
 }
@@ -126,14 +131,12 @@ $font-breakpoints: (
     }
 
     // Font weight
+    $fw: null;
+
     @if $font-weight != '' {
-      font-weight: $font-weight;
+      $fw: $font-weight;
     } @else if map.has-key($token-map, 'font-weight') {
       $fw: map.get($token-map, 'font-weight');
-
-      @if $fw {
-        font-weight: $fw;
-      }
     }
 
     // Base (mobile-xs)
@@ -144,6 +147,11 @@ $font-breakpoints: (
       );
     } @else {
       @include responsive-font-emit($token-map, $important);
+    }
+
+    // After the base font, as a font shorthand would reset it
+    @if $fw {
+      font-weight: $fw;
     }
 
     $prev-tier: 'mobile-xs';
@@ -163,17 +171,17 @@ $font-breakpoints: (
         @if $container != '' {
           // stylelint-disable-next-line container-name-pattern
           @container #{$container} (width >= #{map.get($theme, 'breakpoint', $bp-name)}) {
-            @include responsive-font-emit($current, $important);
+            @include responsive-font-emit($current, $important, $fw);
           }
         } @else {
           $bp-val: map.get($theme, 'breakpoint', $bp-name);
 
           @if $bp-val {
             @media (min-width: $bp-val) {
-              @include responsive-font-emit($current, $important);
+              @include responsive-font-emit($current, $important, $fw);
             }
           } @else {
-            @include responsive-font-emit($current, $important);
+            @include responsive-font-emit($current, $important, $fw);
           }
         }
       }

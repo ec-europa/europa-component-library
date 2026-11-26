@@ -26,7 +26,6 @@ $anchor-width-l: 232px;
   color: map.get($spotlight, 'header', 'color');
   display: flex;
   height: map.get($spotlight, 'header', 'height-desktop');
-  letter-spacing: map.get($theme, 'letter-spacing', '3xl');
   text-transform: uppercase;
 
   @include mixins.responsive-font(

@@ -5,6 +5,7 @@ export default {
   variant: 'horizontal',
   more_label: 'Show more items',
   visible_items: 2,
+  popover_close_label: 'Close',
   items: [
     {
       term: 'Label 01',
@@ -135,6 +136,7 @@ export default {
     {
       term: 'Label 09',
       type: 'tag',
+      more_popover: true,
       definition: [
         { tag: { label: 'Link tag', path: exampleLink } },
         { tag: { label: 'Long link tag', path: exampleLink } },

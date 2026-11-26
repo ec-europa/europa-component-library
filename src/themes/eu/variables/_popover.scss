@@ -2,11 +2,13 @@
 @use '../index' as *;
 
 $popover: (
-  close-button-top: var(--s-s),
-  close-button-right: var(--s-s),
+  close-button-spacing: var(--s-m),
   content-line-height: map.get($line-height-prolonged, 'm'),
-  content-padding-end: var(--s-xl),
-  padding: var(--s-l),
+  content-padding-end: var(--s-3xl),
+  font: var(--f-m),
+  padding-mobile: var(--s-l),
+  padding-tablet: var(--s-l),
+  padding-desktop: var(--s-l),
   shadow: var(--sh-4),
   shadow-size: 4px,
 );
