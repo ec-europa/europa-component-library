@@ -17,6 +17,11 @@ exports[`Form wrapper > renders correctly 1`] = `
       >
         Filter results
       </h2>
+      <div
+        class="ecl-form-wrapper__description"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In luctus tellus nec iaculis commodo. Nulla facilisi. Duis at tortor ornare quam condimentum volutpat ac ac quam. Vivamus sed semper leo.
+      </div>
     </div>
     <div
       class="ecl-form-wrapper__row ecl-form-wrapper__row--col-3"
@@ -80,27 +85,27 @@ exports[`Form wrapper > renders correctly 1`] = `
               data-ecl-select-search="Enter filter keyword"
               id="form-wrapper-country"
               multiple=""
-              name="form-wrapper-country"
+              name="country"
             >
               <option
                 value="1"
               >
-                Italy
+                Belgium
               </option>
               <option
                 value="2"
               >
-                Slovenia
+                France
               </option>
               <option
                 value="3"
               >
-                Belgium
+                Italy
               </option>
               <option
                 value="4"
               >
-                France
+                Slovenia
               </option>
             </select>
             <div
@@ -145,7 +150,7 @@ exports[`Form wrapper > renders correctly 1`] = `
             <span
               class="ecl-form-label"
             >
-              Select region
+              Region
             </span>
           </label>
           <div
@@ -165,7 +170,7 @@ exports[`Form wrapper > renders correctly 1`] = `
               data-ecl-select-search="Enter filter keyword"
               id="form-wrapper-region"
               multiple=""
-              name="form-wrapper-region"
+              name="region"
             >
               <option
                 value="1"
@@ -218,7 +223,7 @@ exports[`Form wrapper > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="ecl-form-wrapper__row ecl-form-wrapper__row--col-2"
+      class="ecl-form-wrapper__row ecl-form-wrapper__row--col-3"
     >
       <div
         class="ecl-form-wrapper__item"
@@ -234,7 +239,7 @@ exports[`Form wrapper > renders correctly 1`] = `
             <span
               class="ecl-form-label"
             >
-              Select city or town
+              City
             </span>
           </label>
           <div
@@ -244,7 +249,7 @@ exports[`Form wrapper > renders correctly 1`] = `
               class="ecl-select"
               data-ecl-auto-init="Select"
               id="form-wrapper-city"
-              name="form-wrapper-city"
+              name="city"
             >
               <option
                 value="1"
@@ -298,66 +303,68 @@ exports[`Form wrapper > renders correctly 1`] = `
         >
           <label
             class="ecl-form-label-wrapper"
-            for="form-wrapper-theme"
-            id="form-wrapper-theme-label"
+            for="form-wrapper-date"
+            id="form-wrapper-date-label"
           >
             <span
               class="ecl-form-label"
             >
-              Select theme
+              Date
             </span>
+            <div
+              class="ecl-help-block--hidden"
+            >
+              Format: dd-mm-yyyy
+            </div>
           </label>
           <div
-            class="ecl-select__container"
+            aria-hidden="true"
+            class="ecl-help-block"
+            id="form-wrapper-date-helper"
           >
-            <select
-              class="ecl-select"
-              data-ecl-auto-init="Select"
-              id="form-wrapper-theme"
-              name="form-wrapper-theme"
-            >
-              <option
-                value="1"
-              >
-                Agriculture
-              </option>
-              <option
-                value="2"
-              >
-                Environment
-              </option>
-              <option
-                value="3"
-              >
-                Transport
-              </option>
-            </select>
-            <div
-              class="ecl-select__icon"
-            >
-              <button
-                class="ecl-button ecl-button--tertiary ecl-button--icon-only"
-                tabindex="-1"
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <span
-                    class="ecl-button__label"
-                    data-ecl-label="true"
-                  >
-                    Toggle dropdown
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    class="wt-icon-phosphor--caret-down ecl-icon ecl-icon--xs ecl-button__icon ecl-icon-phosphor--caret-down"
-                    data-ecl-icon=""
-                  />
-                </span>
-              </button>
-            </div>
+            Format: dd-mm-yyyy
           </div>
+          <div
+            aria-describedby="form-wrapper-date-helper"
+            class="ecl-datepicker ecl-datepicker--m"
+            data-ecl-auto-init="Datepicker"
+            data-ecl-datepicker-toggle=""
+            data-placeholder="DD-MM-YYYY"
+            data-value="2026-11-30 14:13:48 Europe/Brussels"
+          >
+            <duet-date-picker
+              first-day-of-week="1"
+              identifier="form-wrapper-date"
+              max="2026-08-30"
+              min="2024-06-15"
+              name="date"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="ecl-form-wrapper__item"
+      >
+        <div
+          class="ecl-form-group"
+        >
+          <label
+            class="ecl-form-label-wrapper"
+            for="form-wrapper-position"
+            id="form-wrapper-position-label"
+          >
+            <span
+              class="ecl-form-label"
+            >
+              Position
+            </span>
+          </label>
+          <input
+            class="ecl-text-input ecl-text-input--m"
+            id="form-wrapper-position"
+            name="position"
+            type="search"
+          />
         </div>
       </div>
     </div>
@@ -398,6 +405,11 @@ exports[`Form wrapper > renders correctly as a div 1`] = `
       >
         Filter results
       </h2>
+      <div
+        class="ecl-form-wrapper__description"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In luctus tellus nec iaculis commodo. Nulla facilisi. Duis at tortor ornare quam condimentum volutpat ac ac quam. Vivamus sed semper leo.
+      </div>
     </div>
     <div
       class="ecl-form-wrapper__row ecl-form-wrapper__row--col-3"
@@ -461,27 +473,27 @@ exports[`Form wrapper > renders correctly as a div 1`] = `
               data-ecl-select-search="Enter filter keyword"
               id="form-wrapper-country"
               multiple=""
-              name="form-wrapper-country"
+              name="country"
             >
               <option
                 value="1"
               >
-                Italy
+                Belgium
               </option>
               <option
                 value="2"
               >
-                Slovenia
+                France
               </option>
               <option
                 value="3"
               >
-                Belgium
+                Italy
               </option>
               <option
                 value="4"
               >
-                France
+                Slovenia
               </option>
             </select>
             <div
@@ -526,7 +538,7 @@ exports[`Form wrapper > renders correctly as a div 1`] = `
             <span
               class="ecl-form-label"
             >
-              Select region
+              Region
             </span>
           </label>
           <div
@@ -546,7 +558,7 @@ exports[`Form wrapper > renders correctly as a div 1`] = `
               data-ecl-select-search="Enter filter keyword"
               id="form-wrapper-region"
               multiple=""
-              name="form-wrapper-region"
+              name="region"
             >
               <option
                 value="1"
@@ -599,7 +611,7 @@ exports[`Form wrapper > renders correctly as a div 1`] = `
       </div>
     </div>
     <div
-      class="ecl-form-wrapper__row ecl-form-wrapper__row--col-2"
+      class="ecl-form-wrapper__row ecl-form-wrapper__row--col-3"
     >
       <div
         class="ecl-form-wrapper__item"
@@ -615,7 +627,7 @@ exports[`Form wrapper > renders correctly as a div 1`] = `
             <span
               class="ecl-form-label"
             >
-              Select city or town
+              City
             </span>
           </label>
           <div
@@ -625,7 +637,7 @@ exports[`Form wrapper > renders correctly as a div 1`] = `
               class="ecl-select"
               data-ecl-auto-init="Select"
               id="form-wrapper-city"
-              name="form-wrapper-city"
+              name="city"
             >
               <option
                 value="1"
@@ -679,66 +691,68 @@ exports[`Form wrapper > renders correctly as a div 1`] = `
         >
           <label
             class="ecl-form-label-wrapper"
-            for="form-wrapper-theme"
-            id="form-wrapper-theme-label"
+            for="form-wrapper-date"
+            id="form-wrapper-date-label"
           >
             <span
               class="ecl-form-label"
             >
-              Select theme
+              Date
             </span>
+            <div
+              class="ecl-help-block--hidden"
+            >
+              Format: dd-mm-yyyy
+            </div>
           </label>
           <div
-            class="ecl-select__container"
+            aria-hidden="true"
+            class="ecl-help-block"
+            id="form-wrapper-date-helper"
           >
-            <select
-              class="ecl-select"
-              data-ecl-auto-init="Select"
-              id="form-wrapper-theme"
-              name="form-wrapper-theme"
-            >
-              <option
-                value="1"
-              >
-                Agriculture
-              </option>
-              <option
-                value="2"
-              >
-                Environment
-              </option>
-              <option
-                value="3"
-              >
-                Transport
-              </option>
-            </select>
-            <div
-              class="ecl-select__icon"
-            >
-              <button
-                class="ecl-button ecl-button--tertiary ecl-button--icon-only"
-                tabindex="-1"
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <span
-                    class="ecl-button__label"
-                    data-ecl-label="true"
-                  >
-                    Toggle dropdown
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    class="wt-icon-phosphor--caret-down ecl-icon ecl-icon--xs ecl-button__icon ecl-icon-phosphor--caret-down"
-                    data-ecl-icon=""
-                  />
-                </span>
-              </button>
-            </div>
+            Format: dd-mm-yyyy
           </div>
+          <div
+            aria-describedby="form-wrapper-date-helper"
+            class="ecl-datepicker ecl-datepicker--m"
+            data-ecl-auto-init="Datepicker"
+            data-ecl-datepicker-toggle=""
+            data-placeholder="DD-MM-YYYY"
+            data-value="2026-11-30 14:13:48 Europe/Brussels"
+          >
+            <duet-date-picker
+              first-day-of-week="1"
+              identifier="form-wrapper-date"
+              max="2026-08-30"
+              min="2024-06-15"
+              name="date"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="ecl-form-wrapper__item"
+      >
+        <div
+          class="ecl-form-group"
+        >
+          <label
+            class="ecl-form-label-wrapper"
+            for="form-wrapper-position"
+            id="form-wrapper-position-label"
+          >
+            <span
+              class="ecl-form-label"
+            >
+              Position
+            </span>
+          </label>
+          <input
+            class="ecl-text-input ecl-text-input--m"
+            id="form-wrapper-position"
+            name="position"
+            type="search"
+          />
         </div>
       </div>
     </div>
@@ -779,6 +793,11 @@ exports[`Form wrapper > renders correctly with extra class names 1`] = `
       >
         Filter results
       </h2>
+      <div
+        class="ecl-form-wrapper__description"
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In luctus tellus nec iaculis commodo. Nulla facilisi. Duis at tortor ornare quam condimentum volutpat ac ac quam. Vivamus sed semper leo.
+      </div>
     </div>
     <div
       class="ecl-form-wrapper__row ecl-form-wrapper__row--col-3"
@@ -842,27 +861,27 @@ exports[`Form wrapper > renders correctly with extra class names 1`] = `
               data-ecl-select-search="Enter filter keyword"
               id="form-wrapper-country"
               multiple=""
-              name="form-wrapper-country"
+              name="country"
             >
               <option
                 value="1"
               >
-                Italy
+                Belgium
               </option>
               <option
                 value="2"
               >
-                Slovenia
+                France
               </option>
               <option
                 value="3"
               >
-                Belgium
+                Italy
               </option>
               <option
                 value="4"
               >
-                France
+                Slovenia
               </option>
             </select>
             <div
@@ -907,7 +926,7 @@ exports[`Form wrapper > renders correctly with extra class names 1`] = `
             <span
               class="ecl-form-label"
             >
-              Select region
+              Region
             </span>
           </label>
           <div
@@ -927,7 +946,7 @@ exports[`Form wrapper > renders correctly with extra class names 1`] = `
               data-ecl-select-search="Enter filter keyword"
               id="form-wrapper-region"
               multiple=""
-              name="form-wrapper-region"
+              name="region"
             >
               <option
                 value="1"
@@ -980,7 +999,7 @@ exports[`Form wrapper > renders correctly with extra class names 1`] = `
       </div>
     </div>
     <div
-      class="ecl-form-wrapper__row ecl-form-wrapper__row--col-2"
+      class="ecl-form-wrapper__row ecl-form-wrapper__row--col-3"
     >
       <div
         class="ecl-form-wrapper__item"
@@ -996,7 +1015,7 @@ exports[`Form wrapper > renders correctly with extra class names 1`] = `
             <span
               class="ecl-form-label"
             >
-              Select city or town
+              City
             </span>
           </label>
           <div
@@ -1006,7 +1025,7 @@ exports[`Form wrapper > renders correctly with extra class names 1`] = `
               class="ecl-select"
               data-ecl-auto-init="Select"
               id="form-wrapper-city"
-              name="form-wrapper-city"
+              name="city"
             >
               <option
                 value="1"
@@ -1060,66 +1079,68 @@ exports[`Form wrapper > renders correctly with extra class names 1`] = `
         >
           <label
             class="ecl-form-label-wrapper"
-            for="form-wrapper-theme"
-            id="form-wrapper-theme-label"
+            for="form-wrapper-date"
+            id="form-wrapper-date-label"
           >
             <span
               class="ecl-form-label"
             >
-              Select theme
+              Date
             </span>
+            <div
+              class="ecl-help-block--hidden"
+            >
+              Format: dd-mm-yyyy
+            </div>
           </label>
           <div
-            class="ecl-select__container"
+            aria-hidden="true"
+            class="ecl-help-block"
+            id="form-wrapper-date-helper"
           >
-            <select
-              class="ecl-select"
-              data-ecl-auto-init="Select"
-              id="form-wrapper-theme"
-              name="form-wrapper-theme"
-            >
-              <option
-                value="1"
-              >
-                Agriculture
-              </option>
-              <option
-                value="2"
-              >
-                Environment
-              </option>
-              <option
-                value="3"
-              >
-                Transport
-              </option>
-            </select>
-            <div
-              class="ecl-select__icon"
-            >
-              <button
-                class="ecl-button ecl-button--tertiary ecl-button--icon-only"
-                tabindex="-1"
-                type="button"
-              >
-                <span
-                  class="ecl-button__container"
-                >
-                  <span
-                    class="ecl-button__label"
-                    data-ecl-label="true"
-                  >
-                    Toggle dropdown
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    class="wt-icon-phosphor--caret-down ecl-icon ecl-icon--xs ecl-button__icon ecl-icon-phosphor--caret-down"
-                    data-ecl-icon=""
-                  />
-                </span>
-              </button>
-            </div>
+            Format: dd-mm-yyyy
           </div>
+          <div
+            aria-describedby="form-wrapper-date-helper"
+            class="ecl-datepicker ecl-datepicker--m"
+            data-ecl-auto-init="Datepicker"
+            data-ecl-datepicker-toggle=""
+            data-placeholder="DD-MM-YYYY"
+            data-value="2026-11-30 14:13:48 Europe/Brussels"
+          >
+            <duet-date-picker
+              first-day-of-week="1"
+              identifier="form-wrapper-date"
+              max="2026-08-30"
+              min="2024-06-15"
+              name="date"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="ecl-form-wrapper__item"
+      >
+        <div
+          class="ecl-form-group"
+        >
+          <label
+            class="ecl-form-label-wrapper"
+            for="form-wrapper-position"
+            id="form-wrapper-position-label"
+          >
+            <span
+              class="ecl-form-label"
+            >
+              Position
+            </span>
+          </label>
+          <input
+            class="ecl-text-input ecl-text-input--m"
+            id="form-wrapper-position"
+            name="position"
+            type="search"
+          />
         </div>
       </div>
     </div>
