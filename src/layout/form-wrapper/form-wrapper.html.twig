@@ -3,8 +3,8 @@
 
 {#
   Parameters:
-  - "tag" (string) (default: 'form'): Wrapper element; 'form' or 'div' (when the form element is rendered elsewhere)
-  - "id" (string) (default: ''): Id of the wrapper, also used to link the title
+  - "tag" (string) (default: 'form'): Wrapper element; usually 'form' or 'div' (when the form element is rendered elsewhere)
+  - "id" (string) (default: random): Id of the wrapper, also used to link the title
   - "title" (object) (default: {}): Title of the form wrapper. Structure:
     - "level" (int) (default: 2): Heading level, up to h4
     - "label" (string) (default: ''): Title content
@@ -26,8 +26,8 @@
 
 {# Internal properties #}
 
-{% set _tag = tag|default('form') == 'div' ? 'div' : 'form' %}
-{% set _id = id|default('') %}
+{% set _tag = tag|default('form') %}
+{% set _id = id|default('ecl-form-wrapper-' ~ random()) %}
 {% set _title = title|default({})|merge({
   level: title.level|default(2),
   label: title.label|default('')
@@ -68,7 +68,6 @@
 
 {# Print the result #}
 
-{% if _rows is not empty %}
 <{{ _tag }}
   class="{{ _css_class }}"
   {%- if _id is not empty %} id="{{ _id }}"{% endif %}
@@ -89,18 +88,20 @@
     </div>
   {%- endif -%}
 
-  {%- for row in _rows -%}
-    {%- set _items = row.items|default([]) -%}
-    {%- if _items is not empty -%}
-      <div class="ecl-form-wrapper__row ecl-form-wrapper__row--col-{{ min(_items|length, 3) }}">
-        {%- for item in _items -%}
-          <div class="ecl-form-wrapper__item">
-            {{- form_wrapper.render_item(item) -}}
-          </div>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-  {%- endfor -%}
+  {% if _rows is not empty %}
+    {%- for row in _rows -%}
+      {%- set _items = row.items|default([]) -%}
+      {%- if _items is not empty -%}
+        <div class="ecl-form-wrapper__row ecl-form-wrapper__row--col-{{ min(_items|length, 3) }}">
+          {%- for item in _items -%}
+            <div class="ecl-form-wrapper__item">
+              {{- form_wrapper.render_item(item) -}}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  {% endif %}
 
   {%- if _actions is not empty -%}
     <div class="ecl-form-wrapper__actions">
@@ -110,6 +111,5 @@
     </div>
   {%- endif -%}
 </{{ _tag }}>
-{% endif %}
 
 {% endapply %}

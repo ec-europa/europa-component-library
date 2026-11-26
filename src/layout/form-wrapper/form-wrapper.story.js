@@ -6,32 +6,33 @@ import formWrapper from './form-wrapper.html.twig';
 import notes from './README.md?raw';
 
 const getArgs = (data) => ({
-  show_title: true,
   title_label: data.title.label,
-  row_1: data.rows[0].items.length,
-  row_2: data.rows[1].items.length,
-});
-
-const rowControl = (row) => ({
-  name: `items in row ${row}`,
-  control: { type: 'range', min: 0, max: 3, step: 1 },
-  table: { category: 'Content' },
+  description_label: data.description,
+  row_1: 3,
+  row_2: 2,
 });
 
 const getArgTypes = () => ({
-  show_title: {
-    name: 'title',
-    type: { name: 'boolean' },
-    table: { category: 'Optional' },
-  },
   title_label: {
-    name: 'title label',
+    name: 'title',
     type: { name: 'string' },
     table: { category: 'Content' },
-    if: { arg: 'show_title' },
   },
-  row_1: rowControl(1),
-  row_2: rowControl(2),
+  description_label: {
+    name: 'description',
+    type: { name: 'string' },
+    table: { category: 'Content' },
+  },
+  row_1: {
+    name: 'items in row 1',
+    control: { type: 'range', min: 0, max: 3, step: 1 },
+    table: { category: 'Content' },
+  },
+  row_2: {
+    name: 'items in row 2',
+    control: { type: 'range', min: 0, max: 3, step: 1 },
+    table: { category: 'Content' },
+  },
 });
 
 const prepareData = (data, args) => {
@@ -47,13 +48,9 @@ const prepareData = (data, args) => {
     }),
   }));
 
-  if (args.show_title) {
-    clone.title.label = args.title_label;
-  } else {
-    delete clone.title;
-  }
+  clone.title.label = args.title_label;
 
-  return clone;
+  return Object.assign(clone, args);
 };
 
 export default {
