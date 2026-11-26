@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $accordion: (
   radius: 0,
@@ -20,6 +21,7 @@ $accordion: (
     title-text-color: var(--cm-on-surface-brand),
   ),
 );
+$accordion: overrides.apply('accordion', $accordion);
 $accordion-print: (
   toggle-background: transparent,
   toggle-color: var(--cm-on-surface-brand),
@@ -27,3 +29,4 @@ $accordion-print: (
   content-color: var(--cm-on-surface-brand),
   content-font: map.get($font-print, 'm'),
 );
+$accordion-print: overrides.apply('accordion-print', $accordion-print);

@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $card: (
   background: var(--cm-surface-inverted),
@@ -9,3 +10,4 @@ $card: (
   body-padding-mobile: var(--s-l) var(--s-m) var(--s-m),
   body-padding-tablet: var(--s-xl) var(--s-l) var(--s-l),
 );
+$card: overrides.apply('card', $card);

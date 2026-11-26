@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $language-list: (
   color: var(--cm-on-surface-brand),
@@ -49,6 +50,7 @@ $language-list: (
   column-spacing-before: var(--s-m),
   column-spacing-after: var(--s-m),
 );
+$language-list: overrides.apply('language-list', $language-list);
 $language-list-print: (
   container-padding-desktop: (
     block-start: map.get($spacing-print, '3xl'),
@@ -71,4 +73,8 @@ $language-list-print: (
     inline-start: map.get($spacing-print, 'm'),
     inline-end: map.get($spacing-print, 's'),
   ),
+);
+$language-list-print: overrides.apply(
+  'language-list-print',
+  $language-list-print
 );

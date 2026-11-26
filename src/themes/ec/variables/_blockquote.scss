@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $blockquote: (
   background: var(--cm-surface-inverted),
@@ -30,6 +31,7 @@ $blockquote: (
     margin-desktop: var(--s-3xl),
   ),
 );
+$blockquote: overrides.apply('blockquote', $blockquote);
 $blockquote-print: (
   quote-font: map.get($font-print, 'l'),
   author-margin: map.get($spacing-print, 'm'),
@@ -37,3 +39,4 @@ $blockquote-print: (
   sources-margin: map.get($spacing-print, 's'),
   image-margin: map.get($spacing-print, 'xl'),
 );
+$blockquote-print: overrides.apply('blockquote-print', $blockquote-print);

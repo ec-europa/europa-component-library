@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $highlighted-search: (
   dark: (
@@ -34,3 +35,4 @@ $highlighted-search: (
     gap: var(--s-xs),
   ),
 );
+$highlighted-search: overrides.apply('highlighted-search', $highlighted-search);

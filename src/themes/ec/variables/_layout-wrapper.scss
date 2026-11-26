@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $layout-wrapper: (
   divider: 1px solid var(--cm-border-neutral),
@@ -10,3 +11,4 @@ $layout-wrapper: (
     border: 1px solid var(--cm-border-neutral),
   ),
 );
+$layout-wrapper: overrides.apply('layout-wrapper', $layout-wrapper);

@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use 'sass:color';
 @use '../index' as *;
+@use '../overrides';
 
 $site-footer: (
   background: var(--cm-surface-brand),
@@ -28,3 +29,4 @@ $site-footer: (
     link-color-hover: var(--cm-on-surface-grey),
   ),
 );
+$site-footer: overrides.apply('site-footer', $site-footer);

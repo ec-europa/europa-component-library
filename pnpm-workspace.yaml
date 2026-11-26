@@ -11,13 +11,15 @@ packages:
   - "src/specs/**"
   - "src/themes/*"
   - "src/presets/*"
+  - "src/specific/presets/*"
+  - "src/specific/components/*"
   - "src/tools/*"
   - "src/website"
 overrides:
   twing: 7.3.1
   serialize-javascript: '>=3.1.0'
   trim: '>=0.0.3'
-  glob-parent: '>=5.1.2'
+  glob-parent: '>=5.1.2 <7'
   strip-ansi: 6.0.1
   ansi-html: '>=0.0.8'
   follow-redirects: '>=1.14.7'

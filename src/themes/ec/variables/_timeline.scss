@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $timeline: (
   border-color: var(--cm-border-brand),
@@ -80,6 +81,7 @@ $timeline: (
     bullet-top-position-tablet: 14px,
   ),
 );
+$timeline: overrides.apply('timeline', $timeline);
 $timeline-print: (
   title-font: map.get($font-print, 'xl'),
   title-margin: map.get($spacing-print, '2xs'),
@@ -95,3 +97,4 @@ $timeline-print: (
   bullet-large-top-position: 6px,
   headline-bullet-top-position: 22px,
 );
+$timeline-print: overrides.apply('timeline-print', $timeline-print);

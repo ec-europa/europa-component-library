@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $expandable: (
   content-color: var(--cm-on-surface-brand),
@@ -12,3 +13,4 @@ $expandable: (
   toggle-color-active: var(--cm-on-surface-primary-highest),
   toggle-radius: map.get($border-radius, 'xs'),
 );
+$expandable: overrides.apply('expandable', $expandable);

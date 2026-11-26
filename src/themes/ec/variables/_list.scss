@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $list: (
   unordered: (
@@ -26,6 +27,7 @@ $list: (
   text-color: currentcolor,
   divider-color: var(--cm-border-neutral),
 );
+$list: overrides.apply('list', $list);
 $list-print: (
   unordered: (
     padding-start: map.get($spacing-print, 'xl'),
@@ -34,3 +36,4 @@ $list-print: (
     padding-start: map.get($spacing-print, 'xl'),
   ),
 );
+$list-print: overrides.apply('list-print', $list-print);

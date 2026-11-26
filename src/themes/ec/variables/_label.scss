@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $label: (
   radius: map.get($border-radius, 's'),
@@ -28,3 +29,4 @@ $label: (
     border-color: var(--cm-border-grey-medium),
   ),
 );
+$label: overrides.apply('label', $label);

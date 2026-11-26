@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $popover: (
   close-button-top: var(--s-m),
@@ -10,3 +11,4 @@ $popover: (
   shadow: var(--sh-2),
   shadow-size: 2px,
 );
+$popover: overrides.apply('popover', $popover);

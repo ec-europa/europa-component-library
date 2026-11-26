@@ -1,6 +1,8 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $separator: (
   color: var(--cm-border-neutral),
 );
+$separator: overrides.apply('separator', $separator);

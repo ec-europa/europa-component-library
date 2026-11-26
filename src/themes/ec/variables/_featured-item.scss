@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $featured-item: (
   gap-horizontal: var(--s-xl),
@@ -71,6 +72,7 @@ $featured-item: (
     ),
   ),
 );
+$featured-item: overrides.apply('featured-item', $featured-item);
 $featured-item-print: (
   gap-horizontal: map.get($spacing-print, 'xl'),
   gap-vertical: map.get($spacing-print, 'xs'),
@@ -112,4 +114,8 @@ $featured-item-print: (
       max-width: 13.125rem,
     ),
   ),
+);
+$featured-item-print: overrides.apply(
+  'featured-item-print',
+  $featured-item-print
 );

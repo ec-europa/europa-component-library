@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $description-list: (
   term-color: currentcolor,
@@ -16,6 +17,11 @@ $description-list: (
   term-width: 200px,
   see-more-spacing: var(--s-3xs),
 );
+$description-list: overrides.apply('description-list', $description-list);
 $description-list-print: (
   definition-font: map.get($font-print, 'm'),
+);
+$description-list-print: overrides.apply(
+  'description-list-print',
+  $description-list-print
 );

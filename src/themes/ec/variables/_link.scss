@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../index' as *;
+@use '../overrides';
 
 $link: (
   outline-color: var(--cm-border-primary),
@@ -22,3 +23,4 @@ $link: (
     outline-color: var(--cm-border-primary),
   ),
 );
+$link: overrides.apply('link', $link);
