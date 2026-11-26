@@ -5,6 +5,7 @@ export default {
   id: 'gallery-id',
   sr_gallery_label:
     'Open gallery items to view images in original size, watch videos and share them',
+  sr_video_length: 'Duration',
   sr_video_label: 'Video',
   sr_video_player: 'Video player',
   items: [

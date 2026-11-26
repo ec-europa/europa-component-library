@@ -70,7 +70,11 @@ export function createConfig(system, configDir) {
               'specific/components',
             ].map((dir) => path.resolve(sourceRoot, dir)),
           }),
-          nodePolyfills(),
+          nodePolyfills({
+            globals: {
+              process: false,
+            },
+          }),
         ],
         define: {
           ...Object.fromEntries(

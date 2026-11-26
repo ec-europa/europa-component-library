@@ -47,6 +47,12 @@ $quiz: (
     third-option-border: var(--c-w-700),
     option-font: 'body-s',
     icon-overlap: calc(-1 * var(--s-4xl)),
+    micro-title: (
+      font: 'microcopy-s',
+      letter-spacing: map.get($letter-spacing, '3xl'),
+      font-weight: map.get($font-weight, 'medium'),
+      margin: var(--s-3xs),
+    ),
   ),
   card-back: (
     background: var(--cm-on-surface-inverted),
