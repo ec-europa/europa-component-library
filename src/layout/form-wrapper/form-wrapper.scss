@@ -1,0 +1,81 @@
+/**
+ * Form wrapper
+ * @define form-wrapper
+ */
+
+@use 'sass:map';
+@use '@ecl/mixins-typography/mixins';
+
+// Exposed variables
+$theme: null !default;
+$form-wrapper: null !default;
+$typography: null !default;
+
+.ecl-form-wrapper {
+  container-name: ecl-form-wrapper;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: map.get($form-wrapper, 'row-gap');
+  margin: 0;
+  width: 100%;
+}
+
+.ecl-form-wrapper__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-m);
+}
+
+.ecl-form-wrapper__title {
+  margin: 0;
+
+  @include mixins.responsive-font('heading2');
+
+  &:is(h3) {
+    @include mixins.responsive-font('heading3');
+  }
+
+  &:is(h4) {
+    @include mixins.responsive-font('heading4');
+  }
+}
+
+.ecl-form-wrapper__description {
+  @include mixins.responsive-font(map.get($form-wrapper, 'description-font'));
+
+  > *:first-child {
+    margin-block-start: 0;
+  }
+
+  > *:last-child {
+    margin-block-end: 0;
+  }
+}
+
+// Rows: stacked by default (mobile-first)
+.ecl-form-wrapper__row {
+  display: grid;
+  gap: map.get($form-wrapper, 'row-gap') map.get($form-wrapper, 'column-gap');
+  grid-template-columns: 1fr;
+}
+
+.ecl-form-wrapper__item {
+  min-width: 0;
+}
+
+.ecl-form-wrapper__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: map.get($form-wrapper, 'actions-gap');
+}
+
+@container ecl-form-wrapper (width > #{map.get($theme, 'breakpoint', 'm')}) {
+  .ecl-form-wrapper__row--col-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ecl-form-wrapper__row--col-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

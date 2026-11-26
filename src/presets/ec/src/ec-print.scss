@@ -24,6 +24,9 @@
   $layout-wrapper: var.$layout-wrapper,
   $typography: var.$typography-print
 );
+@use '@ecl/form-wrapper/form-wrapper-print' with (
+  $form-wrapper: var.$form-wrapper
+);
 
 // Forms
 @use '@ecl/form-group/form-group-print';

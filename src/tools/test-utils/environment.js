@@ -20,6 +20,7 @@ loader.addPath(componentPath);
 // Twing 7 matches the namespace literally, including the leading @.
 loader.addPath(componentPath, '@ecl');
 loader.addPath(path.resolve(sourceRoot, 'compositions'), '@ecl');
+loader.addPath(path.resolve(sourceRoot, 'layout'), '@ecl');
 loader.addPath(path.resolve(sourceRoot, 'page-example'), '@ecl');
 
 // Twing 7 leaves autoescaping disabled when autoEscapingStrategy is omitted,
