@@ -66,7 +66,6 @@ export default {
             icon: {
               name: 'envelope-simple',
               family: 'phosphor',
-              style: 'inverted',
             },
           },
           section_class_name: 'ecl-site-footer__section--site-info',

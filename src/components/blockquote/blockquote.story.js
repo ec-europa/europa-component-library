@@ -10,6 +10,7 @@ import notes from './README.md?raw';
 const getArgs = (data) => {
   const args = {
     show_image: false,
+    show_sources: false,
     lang: 'en',
     citation: data.citation,
     author: data.author,
@@ -28,6 +29,15 @@ const getArgTypes = () => ({
     name: 'show image',
     type: { name: 'boolean' },
     description: 'Toggle image visibility',
+    table: {
+      type: { summary: 'boolean' },
+      category: 'Optional',
+    },
+  },
+  show_sources: {
+    name: 'show sources',
+    type: { name: 'boolean' },
+    description: 'Toggle sources visibility',
     table: {
       type: { summary: 'boolean' },
       category: 'Optional',
@@ -152,6 +162,11 @@ const prepareData = (data, args) => {
 
   if (!args.show_image) {
     delete clone.picture;
+  }
+
+  if (!args.show_sources) {
+    delete clone.sources;
+    delete clone.sources_label;
   }
 
   return Object.assign(clone, args);

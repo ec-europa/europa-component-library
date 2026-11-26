@@ -17,7 +17,11 @@ $spotlight: (
     height-tablet: 40px,
     height-desktop: 44px,
     padding-block: 2px,
-    font: var(--f-s),
+    font: (
+      mobile-xs: var(--f-s),
+      tablet: var(--f-m),
+      desktop: var(--f-l),
+    ),
     font-weight: map.get($font-weight, 'bold'),
   ),
   credit: (

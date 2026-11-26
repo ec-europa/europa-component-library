@@ -5,7 +5,7 @@
   - "color_mode" (string) The color mode name
   - "label": (string) (default: ''): Aria label provided for accessibility
   - "id": (string) (default: randomized string): Unique id for the category filter
-  - "name" (string) (default: '') Optional name attribute to link the first level items. Ignored if expand_all or collapse_all is displayed
+  - "name" (string) (default: '') Optional name attribute to link the first level items.
   - "items": (associative array) (default: {}): The menu items - format: [
     {
       "label": "Home",
@@ -46,7 +46,7 @@
 {% set _expand_all = expand_all|default({}) %}
 {% set _collapse_all = collapse_all|default({}) %}
 {% set _has_controls = _expand_all is not empty or _collapse_all is not empty %}
-{% set _name = _has_controls ? '' : name|default('') %}
+{% set _name = name|default('') %}
 
 {# Internal logic - Process properties #}
 
