@@ -18,6 +18,7 @@ npm install --save @ecl/description-list
   ...
   ]
 - **"variant"** (string) (default: ''): Global display variant; can be 'horizontal', 'vertical'
+- **"fixed_label_width"** (boolean) (default: true): if set to false, labels will take the width of the longest one (in horizontal lists)
 - **"visible_items"** (integer) (default: 0) Number of initially visible items (0 to display all)
 - **"more_label"** (string) (default: '') Label for the "show more" button when visible_items is set
 - **"popover_close_label"** (string) (default: '') label for the screen reader in the close button of the popover
